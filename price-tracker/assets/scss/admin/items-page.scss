@@ -1,0 +1,72 @@
+// Variables from WordPress admin style
+$wp-border-color: #ddd;
+$wp-primary-color: #2271b1;
+$wp-primary-hover: #135e96;
+$wp-bg-light: #f9f9f9;
+$wp-spacing: 10px;
+
+#category-rows-wrapper {
+  margin-top: 20px;
+
+  .item-row {
+    background: $wp-bg-light;
+    border: 1px solid $wp-border-color;
+    border-left: 4px solid $wp-primary-color;
+    padding: $wp-spacing;
+    margin-bottom: 15px;
+    border-radius: 3px;
+
+    strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #1d2327; // WP dark text
+    }
+
+    label {
+      margin-right: 5px;
+      font-weight: 500;
+      font-size: 13px;
+      color: #333;
+      &.label-success {
+        color: green;
+        font-weight: bold;
+      }
+    }
+
+    input[type="number"],
+    input[type="date"] {
+      margin-right: 10px;
+      padding: 4px 6px;
+      border: 1px solid $wp-border-color;
+      border-radius: 2px;
+      font-size: 13px;
+      width: auto;
+      min-width: 100px;
+
+      &:focus {
+        border-color: $wp-primary-color;
+        box-shadow: 0 0 0 1px $wp-primary-color;
+        outline: none;
+      }
+    }
+
+    .add-item-single {
+      margin-left: 10px;
+      padding: 3px 10px;
+      font-size: 13px;
+
+      &.button-primary {
+        background: $wp-primary-color;
+        border-color: $wp-primary-color;
+        color: #fff;
+
+        &:hover,
+        &:focus {
+          background: $wp-primary-hover;
+          border-color: $wp-primary-hover;
+        }
+      }
+    }
+  }
+}

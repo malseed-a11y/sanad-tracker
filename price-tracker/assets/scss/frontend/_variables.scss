@@ -1,0 +1,33 @@
+// .scss
+
+//Font
+$font-family-base: "STV", sans-serif;
+$font-size-xs: 14px;
+$font-size-sm: 18px;
+$font-size-md: 20px;
+$font-size-lg: 22px;
+$font-normal: 400;
+$font-bold: 700;
+
+// Colors
+$primary-color: #243c69;
+$secondary-color: #24aac1;
+$danger-color: #9c2222;
+$light-danger: hsla(0, 93%, 94%, 1);
+$success-color: hsla(143, 64%, 24%, 1);
+$light-green: hsla(141, 84%, 93%, 1);
+$text-color: hsla(0, 0%, 14%, 1);
+$border-color: hsla(0, 0%, 77%, 1);
+$table-bg: #dfeff6;
+$table-header-bg: #f9faff;
+$table-header-text-color: hsla(0, 0%, 37%, 1);
+$white: #ffffff;
+
+// Spacing
+$padding-sm: 0.5rem;
+$padding-md: 1rem;
+
+// Breakpoints
+$breakpoint-sm: 576px; // phones
+$breakpoint-md: 768px; // tablets
+$breakpoint-lg: 1024px; // desktops

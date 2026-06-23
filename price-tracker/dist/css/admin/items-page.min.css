@@ -1,0 +1,58 @@
+#category-rows-wrapper {
+  margin-top: 20px;
+}
+#category-rows-wrapper .item-row {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-left: 4px solid #2271b1;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+}
+#category-rows-wrapper .item-row strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #1d2327;
+}
+#category-rows-wrapper .item-row label {
+  margin-right: 5px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #333;
+}
+#category-rows-wrapper .item-row label.label-success {
+  color: green;
+  font-weight: bold;
+}
+#category-rows-wrapper .item-row input[type=number],
+#category-rows-wrapper .item-row input[type=date] {
+  margin-right: 10px;
+  padding: 4px 6px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 13px;
+  width: auto;
+  min-width: 100px;
+}
+#category-rows-wrapper .item-row input[type=number]:focus,
+#category-rows-wrapper .item-row input[type=date]:focus {
+  border-color: #2271b1;
+  box-shadow: 0 0 0 1px #2271b1;
+  outline: none;
+}
+#category-rows-wrapper .item-row .add-item-single {
+  margin-left: 10px;
+  padding: 3px 10px;
+  font-size: 13px;
+}
+#category-rows-wrapper .item-row .add-item-single.button-primary {
+  background: #2271b1;
+  border-color: #2271b1;
+  color: #fff;
+}
+#category-rows-wrapper .item-row .add-item-single.button-primary:hover, #category-rows-wrapper .item-row .add-item-single.button-primary:focus {
+  background: #135e96;
+  border-color: #135e96;
+}
+/*# sourceMappingURL=map/items-page.min.css.map */

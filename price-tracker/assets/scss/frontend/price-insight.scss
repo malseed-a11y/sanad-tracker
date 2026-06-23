@@ -1,0 +1,40 @@
+@use "sass:color";
+@use "variables";
+@use "mixins";
+
+.price-tracker-insight-wrapper {
+  @include mixins.price-tracker-wrapper;
+
+  .price-tracker-insight-title {
+    @include mixins.price-tracker-title;
+  }
+
+  .price-tracker-insight-filter {
+    @include mixins.price-tracker-filter;
+    .price-tracker-label-wrapper {
+      @include mixins.price-tracker-label-wrapper;
+      label {
+        @include mixins.price-tracker-label;
+
+        input[type="date"] {
+          @include mixins.price-tracker-date-input;
+        }
+        select {
+          @include mixins.price-tracker-select;
+        }
+      }
+    }
+    button {
+      @include mixins.price-tracker-button;
+    }
+  }
+
+  .price-tracker-insight-table-wrapper {
+    .price-tracker-table {
+      @include mixins.price-tracker-table;
+    }
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid variables.$border-color;
+  }
+}

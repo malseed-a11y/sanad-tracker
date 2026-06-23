@@ -1,0 +1,354 @@
+@use "variables";
+
+/* ============================
+   WRAPPER
+   ============================ */
+@mixin price-tracker-wrapper {
+  position: relative;
+  background: variables.$white;
+  border: 1px solid variables.$border-color;
+  padding: variables.$padding-md;
+  margin: 20px 0;
+  font-family: variables.$font-family-base;
+
+  /* small screens */
+  @media (max-width: variables.$breakpoint-sm) {
+    padding: variables.$padding-sm;
+    margin: 12px 0;
+  }
+
+  /* large screens */
+  @media (min-width: variables.$breakpoint-lg) {
+    padding: calc(variables.$padding-md * 1.25);
+    margin: 24px 0;
+  }
+}
+
+/* ============================
+   TITLE
+   ============================ */
+@mixin price-tracker-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: variables.$primary-color;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  direction: ltr;
+
+  p {
+    margin: 0;
+    font-weight: variables.$font-bold;
+    font-size: variables.$font-size-lg;
+    color: variables.$primary-color;
+    letter-spacing: 0.2px;
+
+    @media (max-width: variables.$breakpoint-sm) {
+      font-size: variables.$font-size-md;
+    }
+    @media (min-width: variables.$breakpoint-lg) {
+      font-size: calc(variables.$font-size-lg + 2px);
+    }
+  }
+
+  svg {
+    width: 10px;
+    height: 10px;
+
+    @media (min-width: variables.$breakpoint-md) {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+/* ============================
+   FILTER ROW
+   ============================ */
+@mixin price-tracker-filter {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+
+  @media (max-width: variables.$breakpoint-sm) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+  }
+}
+/*=============================
+   LABEL WRAPPER
+   ============================ */
+
+@mixin price-tracker-label-wrapper {
+  display: flex;
+  gap: 10px;
+
+  @media (max-width: variables.$breakpoint-sm) {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+/* ============================
+   LABEL
+   ============================ */
+@mixin price-tracker-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: variables.$font-size-md;
+  font-weight: variables.$font-normal;
+  gap: 10px;
+  color: variables.$primary-color;
+
+  @media (max-width: variables.$breakpoint-sm) {
+    font-size: variables.$font-size-sm;
+  }
+}
+
+/* ============================
+   DATE 
+   ============================ */
+@mixin price-tracker-date-input {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  height: 42px;
+  padding: 0 10px;
+  line-height: 42px;
+  font-size: variables.$font-size-sm;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: variables.$font-normal;
+  color: variables.$primary-color;
+
+  border: 1px solid variables.$primary-color;
+  background-color: #fff;
+
+  appearance: auto;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+
+  &::-webkit-calendar-picker-indicator {
+    filter: invert(18%) sepia(22%) saturate(1645%) hue-rotate(186deg)
+      brightness(91%) contrast(91%);
+    cursor: pointer;
+  }
+
+  &:focus {
+    border-color: variables.$primary-color;
+    outline: none;
+  }
+
+  &:hover {
+    border-color: variables.$primary-color;
+  }
+
+  @media (max-width: variables.$breakpoint-sm) {
+    width: 125px;
+    font-size: variables.$font-size-xs;
+  }
+}
+
+/* ============================
+   SELECT
+   ============================ */
+@mixin price-tracker-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  box-sizing: border-box;
+  width: 100px;
+  height: 42px;
+
+  border: 1px solid variables.$primary-color;
+  background-color: variables.$white;
+  color: variables.$primary-color;
+  outline: none;
+  cursor: pointer;
+
+  font-size: variables.$font-size-sm;
+  font-family: variables.$font-family-base;
+  font-weight: variables.$font-normal;
+  line-height: 42px;
+  font-feature-settings: "liga" 0;
+
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDE0IDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMi43NSAwLjc1TDcuODEwNjEgNi4yNjE4QzcuMjI3MjcgNi45MTI3MyA2LjI3MjczIDYuOTEyNzMgNS42ODkzOSA2LjI2MThMMC43NSAwLjc1IiBzdHJva2U9IiMyNDNDNjkiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K");
+  background-repeat: no-repeat;
+  background-size: revert;
+  background-position: left 10px center;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  & option,
+  & optgroup {
+    color: variables.$primary-color;
+    background: variables.$white;
+  }
+
+  & option:checked {
+    background-color: variables.$primary-color;
+    color: variables.$white;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  [dir="rtl"] & {
+    padding: 0 10px 0 36px;
+    background-position: left 10px center;
+  }
+  /* Small screens */
+  @media (max-width: variables.$breakpoint-sm) {
+    width: 100%;
+    font-size: variables.$font-size-xs;
+    [dir="rtl"] & {
+      padding: 0 10px 0 12px;
+      background-position: left 3px center;
+      background-size: 9px;
+    }
+  }
+}
+
+/* ============================
+   BUTTON
+   ============================ */
+@mixin price-tracker-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: clamp(104px, 28vw, 144px);
+  height: 42px;
+  padding: 0 20px;
+
+  font-size: variables.$font-size-md;
+  font-family: variables.$font-family-base;
+  font-weight: variables.$font-normal;
+
+  background: variables.$primary-color;
+  color: variables.$white;
+  border: none;
+  cursor: pointer;
+  transition: transform 150ms, background-color 300ms, box-shadow 300ms;
+
+  @media (max-width: variables.$breakpoint-sm) {
+    width: 100%;
+    height: 44px;
+  }
+
+  &:hover svg {
+    transform: translateX(-5px);
+  }
+}
+
+/* ============================
+   TABLE
+   ============================ */
+@mixin price-tracker-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  direction: rtl;
+  font-family: variables.$font-family-base;
+  font-size: variables.$font-size-md;
+  overflow: hidden;
+
+  @media (max-width: variables.$breakpoint-sm) {
+    font-size: variables.$font-size-sm;
+    border-spacing: 0 6px;
+  }
+
+  thead {
+    th {
+      text-align: unset;
+      color: variables.$table-header-text-color;
+      border-bottom: 1px solid variables.$border-color;
+      font-weight: variables.$font-bold;
+      padding: 8px 6px;
+
+      @media (min-width: variables.$breakpoint-md) {
+        padding: 10px 8px;
+      }
+    }
+  }
+
+  tbody {
+    td {
+      color: variables.$text-color;
+      vertical-align: middle;
+      font-size: variables.$font-size-sm;
+      padding: 10px 6px;
+
+      @media (max-width: variables.$breakpoint-sm) {
+        vertical-align: sub;
+        font-size-adjust: from-font;
+
+        padding: 8px;
+        font-size: variables.$font-size-xs;
+      }
+    }
+  }
+
+  .positive,
+  .negative,
+  .neutral {
+    direction: ltr;
+    text-align: center;
+    font-weight: variables.$font-normal;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .positive {
+    color: variables.$success-color;
+    background-color: variables.$light-green;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 22px;
+      height: 25px;
+      background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxMiAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuOTkyMTkgMTBMNiA1Ljk5MjE5TDEwLjAwNzggMTBMOS4yODEyNSAxMC43MDMxTDYuNDkyMTkgNy45MTQwNlYxNC4wMDc4SDUuNTA3ODFWNy45MTQwNkwyLjY5NTMxIDEwLjcwMzFMMS45OTIxOSAxMFoiIGZpbGw9IiMxNjY1MzQiLz4KPC9zdmc+Cg==")
+        no-repeat center center;
+      background-size: cover;
+    }
+  }
+
+  .negative {
+    color: variables.$danger-color;
+    background: variables.$light-danger;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 22px;
+      height: 25px;
+      background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxMiAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuOTkyMTkgMTBMNiA1Ljk5MjE5TDEwLjAwNzggMTBMOS4yODEyNSAxMC43MDMxTDYuNDkyMTkgNy45MTQwNlYxNC4wMDc4SDUuNTA3ODFWNy45MTQwNkwyLjY5NTMxIDEwLjcwMzFMMS45OTIxOSAxMFoiIGZpbGw9IiM5QzIyMjIiLz4KPC9zdmc+")
+        no-repeat center center;
+      transform: rotate(180deg);
+      background-size: cover;
+    }
+  }
+
+  .neutral {
+    background: variables.$table-bg;
+  }
+
+  .cat-title-name {
+    font-weight: variables.$font-bold;
+  }
+}
