@@ -24,10 +24,10 @@
 
 ## 1. PLUGIN OVERVIEW
 
-**Plugin Name:** Region & Land Price Tracker
-**Namespace:** `RLPTNamespace`
-**Capability:** `rlpt_access`
-**Text Domain:** `rl-price-tracker`
+**Plugin Name:** Sanad Tracker
+**Namespace:** `SanadTracker`
+**Capability:** `sanad_tracker_access`
+**Text Domain:** `sanad-tracker`
 **PHP:** 7.4+
 **WordPress:** 6.0+
 **No build tools.** CSS is plain `.css` files. JS is plain `.js` files.
@@ -36,9 +36,9 @@
 
 Two independent data types:
 
-| Type | What is stored |
-|------|---------------|
-| **Material Prices** | Region + Material + single price + date |
+| Type                 | What is stored                                            |
+| -------------------- | --------------------------------------------------------- |
+| **Material Prices**  | Region + Material + single price + date                   |
 | **Land (m²) Prices** | Region + Shell & Core price + Fully Finished price + date |
 
 ### Admin tabs (6)
@@ -47,15 +47,15 @@ Two independent data types:
 2. **Materials** — CRUD material names
 3. **Material Prices** — select region → enter price per material for that date
 4. **Land Prices** — select region → enter Shell & Core + Fully Finished prices + date
-5. **Not Assigned** — *(removed, not needed)*
+5. **Not Assigned** — _(removed, not needed)_
 6. **Shortcode Generator** — visual builder to copy shortcodes
 
 ### Frontend shortcodes (2)
 
-| Shortcode | Shows |
-|-----------|-------|
-| `[rlpt_materials]` | Region selector + material price table + mini charts |
-| `[rlpt_land]` | Region selector + land price table (2 rows) + combined chart |
+| Shortcode          | Shows                                                        |
+| ------------------ | ------------------------------------------------------------ |
+| `[sanad_materials]` | Region selector + material price table + mini charts         |
+| `[sanad_land]`      | Region selector + land price table (2 rows) + combined chart |
 
 ---
 
@@ -65,18 +65,18 @@ Four tables, created in a transaction on activation. No pivot table needed — r
 
 ---
 
-### `wp_rlpt_regions`
+### `wp_sanad_tracker_regions`
 
 Stores region names.
 
-| Column | Type | Notes |
-|--------|------|-------|
-| `id` | `BIGINT(20) UNSIGNED` | PK, AUTO_INCREMENT |
-| `name` | `VARCHAR(255)` | NOT NULL |
-| `slug` | `VARCHAR(255)` | NOT NULL, UNIQUE |
+| Column | Type                  | Notes              |
+| ------ | --------------------- | ------------------ |
+| `id`   | `BIGINT(20) UNSIGNED` | PK, AUTO_INCREMENT |
+| `name` | `VARCHAR(255)`        | NOT NULL           |
+| `slug` | `VARCHAR(255)`        | NOT NULL, UNIQUE   |
 
 ```sql
-CREATE TABLE wp_rlpt_regions (
+CREATE TABLE wp_sanad_tracker_regions (
     id   BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     slug VARCHAR(255) NOT NULL,
@@ -87,18 +87,18 @@ CREATE TABLE wp_rlpt_regions (
 
 ---
 
-### `wp_rlpt_materials`
+### `wp_sanad_tracker_materials`
 
 Stores material names.
 
-| Column | Type | Notes |
-|--------|------|-------|
-| `id` | `BIGINT(20) UNSIGNED` | PK, AUTO_INCREMENT |
-| `name` | `VARCHAR(255)` | NOT NULL |
-| `slug` | `VARCHAR(255)` | NOT NULL, UNIQUE |
+| Column | Type                  | Notes              |
+| ------ | --------------------- | ------------------ |
+| `id`   | `BIGINT(20) UNSIGNED` | PK, AUTO_INCREMENT |
+| `name` | `VARCHAR(255)`        | NOT NULL           |
+| `slug` | `VARCHAR(255)`        | NOT NULL, UNIQUE   |
 
 ```sql
-CREATE TABLE wp_rlpt_materials (
+CREATE TABLE wp_sanad_tracker_materials (
     id   BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     slug VARCHAR(255) NOT NULL,
@@ -109,54 +109,54 @@ CREATE TABLE wp_rlpt_materials (
 
 ---
 
-### `wp_rlpt_material_prices`
+### `wp_sanad_tracker_material_prices`
 
 One row = one material's price in one region on one date.
 
-| Column | Type | Notes |
-|--------|------|-------|
-| `id` | `BIGINT(20) UNSIGNED` | PK, AUTO_INCREMENT |
-| `region_id` | `BIGINT(20) UNSIGNED` | FK → `wp_rlpt_regions(id)` ON DELETE CASCADE |
-| `material_id` | `BIGINT(20) UNSIGNED` | FK → `wp_rlpt_materials(id)` ON DELETE CASCADE |
-| `price` | `DECIMAL(15,2)` | NOT NULL |
-| `date` | `DATE` | NOT NULL |
+| Column        | Type                  | Notes                                                    |
+| ------------- | --------------------- | -------------------------------------------------------- |
+| `id`          | `BIGINT(20) UNSIGNED` | PK, AUTO_INCREMENT                                       |
+| `region_id`   | `BIGINT(20) UNSIGNED` | FK → `wp_sanad_tracker_regions(id)` ON DELETE CASCADE    |
+| `material_id` | `BIGINT(20) UNSIGNED` | FK → `wp_sanad_tracker_materials(id)` ON DELETE CASCADE  |
+| `price`       | `DECIMAL(15,2)`       | NOT NULL                                                 |
+| `date`        | `DATE`                | NOT NULL                                                 |
 
 ```sql
-CREATE TABLE wp_rlpt_material_prices (
+CREATE TABLE wp_sanad_tracker_material_prices (
     id          BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
     region_id   BIGINT(20) UNSIGNED NOT NULL,
     material_id BIGINT(20) UNSIGNED NOT NULL,
     price       DECIMAL(15,2) NOT NULL,
     date        DATE NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (region_id)   REFERENCES wp_rlpt_regions(id)   ON DELETE CASCADE,
-    FOREIGN KEY (material_id) REFERENCES wp_rlpt_materials(id) ON DELETE CASCADE
+    FOREIGN KEY (region_id)   REFERENCES wp_sanad_tracker_regions(id)   ON DELETE CASCADE,
+    FOREIGN KEY (material_id) REFERENCES wp_sanad_tracker_materials(id) ON DELETE CASCADE
 ) DEFAULT CHARSET=utf8mb4;
 ```
 
 ---
 
-### `wp_rlpt_land_prices`
+### `wp_sanad_tracker_land_prices`
 
 One row = Shell & Core + Fully Finished prices for a region on a date.
 
-| Column | Type | Notes |
-|--------|------|-------|
-| `id` | `BIGINT(20) UNSIGNED` | PK, AUTO_INCREMENT |
-| `region_id` | `BIGINT(20) UNSIGNED` | FK → `wp_rlpt_regions(id)` ON DELETE CASCADE |
-| `shell_core_price` | `DECIMAL(15,2)` | NOT NULL |
-| `fully_finished_price` | `DECIMAL(15,2)` | NOT NULL |
-| `date` | `DATE` | NOT NULL |
+| Column                 | Type                  | Notes                                                  |
+| ---------------------- | --------------------- | ------------------------------------------------------ |
+| `id`                   | `BIGINT(20) UNSIGNED` | PK, AUTO_INCREMENT                                     |
+| `region_id`            | `BIGINT(20) UNSIGNED` | FK → `wp_sanad_tracker_regions(id)` ON DELETE CASCADE  |
+| `shell_core_price`     | `DECIMAL(15,2)`       | NOT NULL                                               |
+| `fully_finished_price` | `DECIMAL(15,2)`       | NOT NULL                                               |
+| `date`                 | `DATE`                | NOT NULL                                               |
 
 ```sql
-CREATE TABLE wp_rlpt_land_prices (
+CREATE TABLE wp_sanad_tracker_land_prices (
     id                   BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
     region_id            BIGINT(20) UNSIGNED NOT NULL,
     shell_core_price     DECIMAL(15,2) NOT NULL,
     fully_finished_price DECIMAL(15,2) NOT NULL,
     date                 DATE NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (region_id) REFERENCES wp_rlpt_regions(id) ON DELETE CASCADE
+    FOREIGN KEY (region_id) REFERENCES wp_sanad_tracker_regions(id) ON DELETE CASCADE
 ) DEFAULT CHARSET=utf8mb4;
 ```
 
@@ -165,9 +165,9 @@ CREATE TABLE wp_rlpt_land_prices (
 ### Entity Relationship
 
 ```
-wp_rlpt_regions ──┬──> wp_rlpt_material_prices <──── wp_rlpt_materials
-                  │
-                  └──> wp_rlpt_land_prices
+wp_sanad_tracker_regions ──┬──> wp_sanad_tracker_material_prices <──── wp_sanad_tracker_materials
+                           │
+                           └──> wp_sanad_tracker_land_prices
 ```
 
 ---
@@ -175,14 +175,15 @@ wp_rlpt_regions ──┬──> wp_rlpt_material_prices <──── wp_rlpt_m
 ## 3. DIRECTORY & FILE STRUCTURE
 
 ```
-rl-price-tracker/
+sanad-calck/
 │
-├── rl-price-tracker.php             # Plugin entry point, constants, activation
+├── sanad-calck.php                  # Plugin header (WordPress entry point)
+├── sanad-tracker.php                # Main plugin class, constants, activation
 ├── uninstall.php                    # Drop tables on uninstall (if option set)
 ├── index.php                        # Silence (security)
 ├── composer.json                    # PSR-4 autoload only
 │
-├── src/                             # All PHP classes (PSR-4: RLPTNamespace\)
+├── includes/                        # All PHP classes (PSR-4: SanadTracker\)
 │   │
 │   ├── Admin/
 │   │   ├── AdminPage.php            # Menu registration, tab router, asset enqueue
@@ -200,8 +201,8 @@ rl-price-tracker/
 │   │   └── LandPricesAjax.php       # add / delete entries + frontend data fetch
 │   │
 │   └── Shortcodes/
-│       ├── MaterialsShortcode.php   # [rlpt_materials] render + asset enqueue
-│       └── LandShortcode.php        # [rlpt_land] render + asset enqueue
+│       ├── MaterialsShortcode.php   # [sanad_materials] render + asset enqueue
+│       └── LandShortcode.php        # [sanad_land] render + asset enqueue
 │
 ├── assets/
 │   ├── css/
@@ -210,8 +211,8 @@ rl-price-tracker/
 │   │   │   ├── prices-tab.css       # Material prices & land prices tab styles
 │   │   │   └── shortcode-gen.css    # Shortcode generator tab styles
 │   │   └── frontend/
-│   │       ├── rlpt-table.css       # Shared table styles (both shortcodes)
-│   │       └── rlpt-chart.css       # Chart canvas + loader styles
+│   │       ├── sanad-table.css      # Shared table styles (both shortcodes)
+│   │       └── sanad-chart.css      # Chart canvas + loader styles
 │   │
 │   └── js/
 │       ├── admin/
@@ -221,29 +222,20 @@ rl-price-tracker/
 │       │   ├── land-prices-ajax.js  # region select → 2-row form → submit
 │       │   └── shortcode-gen.js     # live shortcode builder + copy
 │       └── frontend/
-│           ├── rlpt-materials.js    # [rlpt_materials] region select, table, mini charts
-│           └── rlpt-land.js         # [rlpt_land] region select, table, combined chart
-│
-├── dist/                            # Minified output (manual or wp_enqueue as-is in dev)
-│   ├── css/admin/
-│   ├── css/frontend/
-│   ├── js/admin/
-│   └── js/frontend/
-│
-├── languages/
-│   └── rl-price-tracker.pot
+│           ├── sanad-materials.js   # [sanad_materials] region select, table, mini charts
+│           └── sanad-land.js        # [sanad_land] region select, table, combined chart
 │
 └── vendor/                          # Composer autoload
 ```
 
 ### Design pattern rationale vs old plugin
 
-| Old plugin | This plugin | Why |
-|------------|-------------|-----|
-| Flat `classes/` dump | `src/Admin/`, `src/Ajax/`, `src/Shortcodes/` | Separation of concerns |
-| One giant `AjaxHandler.php` | One Ajax class per domain | Easier to read, edit, test |
-| One `SettingsPage.php` + loose tab files | `AdminPage.php` + `Tabs/` classes | Tab logic stays with its own class |
-| `settings/tabs/*.php` raw includes | Each tab is a class with a `render()` method | No global variable leakage |
+| Old plugin                               | This plugin                                    | Why                                |
+| ---------------------------------------- | ---------------------------------------------- | ---------------------------------- |
+| Flat `classes/` dump                     | `includes/Admin/`, `includes/Ajax/`, `includes/Shortcodes/` | Separation of concerns |
+| One giant `AjaxHandler.php`              | One Ajax class per domain                      | Easier to read, edit, test         |
+| One `SettingsPage.php` + loose tab files | `AdminPage.php` + `Tabs/` classes              | Tab logic stays with its own class |
+| `settings/tabs/*.php` raw includes       | Each tab is a class with a `render()` method   | No global variable leakage         |
 
 ---
 
@@ -253,10 +245,11 @@ rl-price-tracker/
 
 ### Tab 1 — Regions
 
-**File:** `src/Admin/Tabs/RegionsTab.php`
+**File:** `includes/Admin/Tabs/RegionsTab.php`
 **JS:** `assets/js/admin/regions-ajax.js`
 
 **UI:**
+
 - Add form: name input → slug auto-generated from name
 - List table: Name | Slug | Edit | Delete
 - Inline edit: click Edit → row becomes editable inline
@@ -265,16 +258,16 @@ rl-price-tracker/
 **AJAX actions:**
 | Action | Handler | Notes |
 |--------|---------|-------|
-| `rlpt_add_region` | `RegionsAjax::add()` | Sanitize name, auto-slug, insert |
-| `rlpt_edit_region` | `RegionsAjax::edit()` | Sanitize, update name + slug |
-| `rlpt_delete_region` | `RegionsAjax::delete()` | Cascades to prices |
-| `rlpt_get_regions` | `RegionsAjax::list()` | Returns all regions (used by other tabs too) |
+| `sanad_tracker_add_region` | `RegionsAjax::add()` | Sanitize name, auto-slug, insert |
+| `sanad_tracker_edit_region` | `RegionsAjax::edit()` | Sanitize, update name + slug |
+| `sanad_tracker_delete_region` | `RegionsAjax::delete()` | Cascades to prices |
+| `sanad_tracker_get_regions` | `RegionsAjax::list()` | Returns all regions (used by other tabs too) |
 
 ---
 
 ### Tab 2 — Materials
 
-**File:** `src/Admin/Tabs/MaterialsTab.php`
+**File:** `includes/Admin/Tabs/MaterialsTab.php`
 **JS:** `assets/js/admin/materials-ajax.js`
 
 Identical pattern to Regions tab.
@@ -282,20 +275,21 @@ Identical pattern to Regions tab.
 **AJAX actions:**
 | Action | Handler |
 |--------|---------|
-| `rlpt_add_material` | `MaterialsAjax::add()` |
-| `rlpt_edit_material` | `MaterialsAjax::edit()` |
-| `rlpt_delete_material` | `MaterialsAjax::delete()` |
-| `rlpt_get_materials` | `MaterialsAjax::list()` |
+| `sanad_tracker_add_material` | `MaterialsAjax::add()` |
+| `sanad_tracker_edit_material` | `MaterialsAjax::edit()` |
+| `sanad_tracker_delete_material` | `MaterialsAjax::delete()` |
+| `sanad_tracker_get_materials` | `MaterialsAjax::list()` |
 
 ---
 
 ### Tab 3 — Material Prices
 
-**File:** `src/Admin/Tabs/MaterialPricesTab.php`
+**File:** `includes/Admin/Tabs/MaterialPricesTab.php`
 **JS:** `assets/js/admin/material-prices-ajax.js`
 
 **UI flow:**
-1. Region dropdown (Select2, loads via `rlpt_get_regions`)
+
+1. Region dropdown (Select2, loads via `sanad_tracker_get_regions`)
 2. Date input (defaults to today)
 3. On region select → AJAX fetch all materials → render one row per material:
    - Material name (read-only label) | Price input
@@ -305,18 +299,19 @@ Identical pattern to Regions tab.
 **AJAX actions:**
 | Action | Handler | Notes |
 |--------|---------|-------|
-| `rlpt_save_material_prices` | `MaterialPricesAjax::save()` | Batch insert: region_id + date + array of {material_id, price} — skips empty price inputs |
-| `rlpt_delete_material_price` | `MaterialPricesAjax::delete()` | Delete single entry by id |
-| `rlpt_get_material_prices_list` | `MaterialPricesAjax::adminList()` | Returns last 20 entries for a region (for admin table) |
+| `sanad_tracker_save_material_prices` | `MaterialPricesAjax::save()` | Batch insert: region_id + date + array of {material_id, price} — skips empty price inputs |
+| `sanad_tracker_delete_material_price` | `MaterialPricesAjax::delete()` | Delete single entry by id |
+| `sanad_tracker_get_material_prices_admin_list` | `MaterialPricesAjax::adminList()` | Returns last 20 entries for a region (for admin table) |
 
 ---
 
 ### Tab 4 — Land Prices
 
-**File:** `src/Admin/Tabs/LandPricesTab.php`
+**File:** `includes/Admin/Tabs/LandPricesTab.php`
 **JS:** `assets/js/admin/land-prices-ajax.js`
 
 **UI flow:**
+
 1. Region dropdown (Select2)
 2. Date input (defaults to today)
 3. On region select → always show exactly 2 rows:
@@ -328,28 +323,30 @@ Identical pattern to Regions tab.
 **AJAX actions:**
 | Action | Handler | Notes |
 |--------|---------|-------|
-| `rlpt_save_land_price` | `LandPricesAjax::save()` | Insert one row: region_id, date, shell_core_price, fully_finished_price |
-| `rlpt_delete_land_price` | `LandPricesAjax::delete()` | Delete by id |
-| `rlpt_get_land_prices_list` | `LandPricesAjax::adminList()` | Last 20 entries for a region |
+| `sanad_tracker_save_land_prices` | `LandPricesAjax::save()` | Insert one row: region_id, date, shell_core_price, fully_finished_price |
+| `sanad_tracker_delete_land_price` | `LandPricesAjax::delete()` | Delete by id |
+| `sanad_tracker_get_land_prices_admin_list` | `LandPricesAjax::adminList()` | Last 20 entries for a region |
 
 ---
 
 ### Tab 5 — Shortcode Generator
 
-**File:** `src/Admin/Tabs/ShortcodeGeneratorTab.php`
+**File:** `includes/Admin/Tabs/ShortcodeGeneratorTab.php`
 **JS:** `assets/js/admin/shortcode-gen.js`
 
 **UI:**
-- Dropdown: shortcode type → `[rlpt_materials]` or `[rlpt_land]`
+
+- Dropdown: shortcode type → `[sanad_materials]` or `[sanad_land]`
 - Dropdown: region (optional — leave blank = user picks on frontend)
 - Title text input (optional)
 - Live preview textarea updates as user changes fields
 - Copy to clipboard button
 
 **Output examples:**
+
 ```
-[rlpt_materials region="cairo" title="Cairo Material Prices"]
-[rlpt_land region="new-capital" title="New Capital Land Prices"]
+[sanad_materials region="cairo" title="Cairo Material Prices"]
+[sanad_land region="new-capital" title="New Capital Land Prices"]
 ```
 
 ---
@@ -358,11 +355,11 @@ Identical pattern to Regions tab.
 
 ---
 
-### Shortcode 1 — `[rlpt_materials]`
+### Shortcode 1 — `[sanad_materials]`
 
-**File:** `src/Shortcodes/MaterialsShortcode.php`
-**JS:** `assets/js/frontend/rlpt-materials.js`
-**CSS:** `assets/css/frontend/rlpt-table.css` + `rlpt-chart.css`
+**File:** `includes/Shortcodes/MaterialsShortcode.php`
+**JS:** `assets/js/frontend/sanad-materials.js`
+**CSS:** `assets/css/frontend/sanad-table.css` + `sanad-chart.css`
 
 **Attributes:**
 | Attribute | Default | Notes |
@@ -371,14 +368,15 @@ Identical pattern to Regions tab.
 | `title` | `''` | Optional heading |
 
 **Rendered HTML structure:**
+
 ```
-<div class="rlpt-materials-wrapper" data-region="{slug}">
+<div class="sanad-materials-wrapper" data-region="{slug}">
   <h3>{title}</h3>
-  <div class="rlpt-region-selector">      ← only shown if region attr is empty
-    <select class="rlpt-region-select">...</select>
+  <div class="sanad-region-selector">      ← only shown if region attr is empty
+    <select class="sanad-region-select">...</select>
   </div>
-  <div class="rlpt-loader"></div>
-  <div class="rlpt-materials-table-container">
+  <div class="sanad-loader"></div>
+  <div class="sanad-materials-table-container">
     <!-- injected by JS -->
     <table>
       <thead>
@@ -393,8 +391,8 @@ Identical pattern to Regions tab.
         <tr>
           <td>{material name}</td>
           <td>{latest price}</td>
-          <td><canvas class="rlpt-mini-chart" ...></canvas></td>
-          <td class="rlpt-indicator up|down|neutral">↑ / ↓ / —</td>
+          <td><canvas class="sanad-mini-chart" ...></canvas></td>
+          <td class="sanad-indicator up|down|neutral">↑ / ↓ / —</td>
         </tr>
         ...
       </tbody>
@@ -404,6 +402,7 @@ Identical pattern to Regions tab.
 ```
 
 **JS behavior:**
+
 1. On load: if `data-region` is set → auto-fetch. If not → wait for select change.
 2. On region select change → fetch table data via AJAX.
 3. Inject HTML table into container.
@@ -413,28 +412,29 @@ Identical pattern to Regions tab.
 **AJAX actions (frontend):**
 | Action | Returns |
 |--------|---------|
-| `rlpt_get_materials_table` | `{ rows: [ { material_id, material_name, latest_price, indicator, chart_data: [{month, avg}x6] } ] }` |
-| `rlpt_get_regions_list` | `{ regions: [ {id, name, slug} ] }` — used to populate the region selector |
+| `sanad_tracker_get_materials_table` | `{ rows: [ { material_id, material_name, latest_price, indicator, chart_data: [{month, avg}x6] } ] }` |
+| `sanad_tracker_get_regions_list` | `{ regions: [ {id, name, slug} ] }` — used to populate the region selector |
 
 ---
 
-### Shortcode 2 — `[rlpt_land]`
+### Shortcode 2 — `[sanad_land]`
 
-**File:** `src/Shortcodes/LandShortcode.php`
-**JS:** `assets/js/frontend/rlpt-land.js`
-**CSS:** `assets/css/frontend/rlpt-table.css` + `rlpt-chart.css`
+**File:** `includes/Shortcodes/LandShortcode.php`
+**JS:** `assets/js/frontend/sanad-land.js`
+**CSS:** `assets/css/frontend/sanad-table.css` + `sanad-chart.css`
 
-**Attributes:** same as `[rlpt_materials]` — `region`, `title`.
+**Attributes:** same as `[sanad_materials]` — `region`, `title`.
 
 **Rendered HTML structure:**
+
 ```
-<div class="rlpt-land-wrapper" data-region="{slug}">
+<div class="sanad-land-wrapper" data-region="{slug}">
   <h3>{title}</h3>
-  <div class="rlpt-region-selector">      ← only if region attr empty
-    <select class="rlpt-region-select">...</select>
+  <div class="sanad-region-selector">      ← only if region attr empty
+    <select class="sanad-region-select">...</select>
   </div>
-  <div class="rlpt-loader"></div>
-  <div class="rlpt-land-table-container">
+  <div class="sanad-loader"></div>
+  <div class="sanad-land-table-container">
     <!-- injected by JS -->
     <table>
       <thead>
@@ -444,21 +444,22 @@ Identical pattern to Regions tab.
         <tr>
           <td>Shell &amp; Core</td>
           <td>{price}</td>
-          <td class="rlpt-indicator up|down|neutral">↑ / ↓ / —</td>
+          <td class="sanad-indicator up|down|neutral">↑ / ↓ / —</td>
         </tr>
         <tr>
           <td>Fully Finished</td>
           <td>{price}</td>
-          <td class="rlpt-indicator up|down|neutral">↑ / ↓ / —</td>
+          <td class="sanad-indicator up|down|neutral">↑ / ↓ / —</td>
         </tr>
       </tbody>
     </table>
-    <canvas class="rlpt-land-chart"></canvas>   ← combined chart, both lines
+    <canvas class="sanad-land-chart"></canvas>   ← combined chart, both lines
   </div>
 </div>
 ```
 
 **JS behavior:**
+
 1. Same region-select auto-load pattern as above.
 2. Fetch land data → inject table rows.
 3. Render one Chart.js line chart with **two lines**: Shell & Core and Fully Finished (6-month avg — see §6).
@@ -467,7 +468,7 @@ Identical pattern to Regions tab.
 **AJAX actions (frontend):**
 | Action | Returns |
 |--------|---------|
-| `rlpt_get_land_table` | `{ shell_core: { latest_price, indicator, chart_data: [{month,avg}x6] }, fully_finished: { latest_price, indicator, chart_data: [{month,avg}x6] } }` |
+| `sanad_tracker_get_land_table` | `{ shell_core: { latest_price, indicator, chart_data: [{month,avg}x6] }, fully_finished: { latest_price, indicator, chart_data: [{month,avg}x6] } }` |
 
 ---
 
@@ -481,7 +482,7 @@ Identical pattern to Regions tab.
 SELECT
     DATE_FORMAT(date, '%Y-%m') AS month,
     AVG(price)                 AS avg_price
-FROM wp_rlpt_material_prices
+FROM wp_sanad_tracker_material_prices
 WHERE region_id = %d
   AND material_id = %d
   AND date >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
@@ -515,11 +516,12 @@ if current_avg == previous_avg      → show  —  (class: neutral)
 ```
 
 **PHP query:**
+
 ```sql
 SELECT
     DATE_FORMAT(date, '%Y-%m') AS month,
     AVG(price)                 AS avg_price
-FROM wp_rlpt_material_prices
+FROM wp_sanad_tracker_material_prices
 WHERE region_id   = %d
   AND material_id = %d
   AND date >= DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
@@ -536,43 +538,43 @@ Returns max 2 rows (last month + current month). Comparison done in PHP.
 
 All endpoints follow the same patterns from the old plugin (nonce verify → capability check → sanitize → query → `wp_send_json_success/error`).
 
-### Admin endpoints (require `rlpt_access` capability)
+### Admin endpoints (require `sanad_tracker_access` capability)
 
-| AJAX Action | Class::Method | Auth |
-|-------------|--------------|------|
-| `rlpt_add_region` | `RegionsAjax::add` | admin |
-| `rlpt_edit_region` | `RegionsAjax::edit` | admin |
-| `rlpt_delete_region` | `RegionsAjax::delete` | admin |
-| `rlpt_get_regions` | `RegionsAjax::list` | admin |
-| `rlpt_add_material` | `MaterialsAjax::add` | admin |
-| `rlpt_edit_material` | `MaterialsAjax::edit` | admin |
-| `rlpt_delete_material` | `MaterialsAjax::delete` | admin |
-| `rlpt_get_materials` | `MaterialsAjax::list` | admin |
-| `rlpt_save_material_prices` | `MaterialPricesAjax::save` | admin |
-| `rlpt_delete_material_price` | `MaterialPricesAjax::delete` | admin |
-| `rlpt_get_material_prices_list` | `MaterialPricesAjax::adminList` | admin |
-| `rlpt_save_land_price` | `LandPricesAjax::save` | admin |
-| `rlpt_delete_land_price` | `LandPricesAjax::delete` | admin |
-| `rlpt_get_land_prices_list` | `LandPricesAjax::adminList` | admin |
+| AJAX Action                     | Class::Method                   | Auth  |
+| ------------------------------- | ------------------------------- | ----- |
+| `sanad_tracker_add_region`               | `RegionsAjax::add`              | admin |
+| `sanad_tracker_edit_region`              | `RegionsAjax::edit`             | admin |
+| `sanad_tracker_delete_region`            | `RegionsAjax::delete`           | admin |
+| `sanad_tracker_get_regions`              | `RegionsAjax::list`             | admin |
+| `sanad_tracker_add_material`             | `MaterialsAjax::add`            | admin |
+| `sanad_tracker_edit_material`            | `MaterialsAjax::edit`           | admin |
+| `sanad_tracker_delete_material`          | `MaterialsAjax::delete`         | admin |
+| `sanad_tracker_get_materials`            | `MaterialsAjax::list`           | admin |
+| `sanad_tracker_save_material_prices`     | `MaterialPricesAjax::save`      | admin |
+| `sanad_tracker_delete_material_price`    | `MaterialPricesAjax::delete`    | admin |
+| `sanad_tracker_get_material_prices_admin_list` | `MaterialPricesAjax::adminList` | admin |
+| `sanad_tracker_save_land_prices`         | `LandPricesAjax::save`          | admin |
+| `sanad_tracker_delete_land_price`        | `LandPricesAjax::delete`        | admin |
+| `sanad_tracker_get_land_prices_admin_list`     | `LandPricesAjax::adminList`     | admin |
 
 ### Public endpoints (no login required — `nopriv`)
 
-| AJAX Action | Class::Method | Returns |
-|-------------|--------------|---------|
-| `rlpt_get_regions_list` | `RegionsAjax::publicList` | Region list for frontend selectors |
-| `rlpt_get_materials_table` | `MaterialPricesAjax::frontendTable` | Table rows + chart data + indicators |
-| `rlpt_get_land_table` | `LandPricesAjax::frontendTable` | Land rows + chart data + indicators |
+| AJAX Action                | Class::Method                       | Returns                              |
+| -------------------------- | ----------------------------------- | ------------------------------------ |
+| `sanad_tracker_get_regions_list`    | `RegionsAjax::publicList`           | Region list for frontend selectors   |
+| `sanad_tracker_get_materials_table` | `MaterialPricesAjax::frontendTable` | Table rows + chart data + indicators |
+| `sanad_tracker_get_land_table`      | `LandPricesAjax::frontendTable`     | Land rows + chart data + indicators  |
 
 ### Nonce names
 
-| Purpose | Nonce name |
-|---------|-----------|
-| Regions CRUD | `rlpt_regions_nonce` |
-| Materials CRUD | `rlpt_materials_nonce` |
-| Material Prices | `rlpt_material_prices_nonce` |
-| Land Prices | `rlpt_land_prices_nonce` |
-| Frontend Materials | `rlpt_frontend_materials_nonce` |
-| Frontend Land | `rlpt_frontend_land_nonce` |
+| Purpose            | Nonce name                      |
+| ------------------ | ------------------------------- |
+| Regions CRUD       | `sanad_tracker_regions_nonce`            |
+| Materials CRUD     | `sanad_tracker_materials_nonce`          |
+| Material Prices    | `sanad_tracker_material_prices_nonce`    |
+| Land Prices        | `sanad_tracker_land_prices_nonce`        |
+| Frontend Materials | `sanad_tracker_frontend_materials_nonce` |
+| Frontend Land      | `sanad_tracker_frontend_land_nonce`      |
 
 ---
 
@@ -580,14 +582,14 @@ All endpoints follow the same patterns from the old plugin (nonce verify → cap
 
 Same model as the old plugin, applied consistently:
 
-| Layer | Rule |
-|-------|------|
-| Nonces | Every AJAX call checks nonce via `check_ajax_referer()` |
-| Capability | All admin actions check `current_user_can('rlpt_access')` |
-| Sanitization | `sanitize_text_field()`, `sanitize_title()`, `intval()`, `floatval()` on all inputs |
-| SQL | Always `$wpdb->prepare()` with `%s %d %f` — never string interpolation |
-| Output | `esc_html()`, `esc_attr()`, `wp_json_encode()` on all output |
-| Direct access | Every PHP file starts with `if (!defined('ABSPATH')) exit;` |
+| Layer         | Rule                                                                                |
+| ------------- | ----------------------------------------------------------------------------------- |
+| Nonces        | Every AJAX call checks nonce via `check_ajax_referer()`                             |
+| Capability    | All admin actions check `current_user_can('sanad_tracker_access')`                           |
+| Sanitization  | `sanitize_text_field()`, `sanitize_title()`, `intval()`, `floatval()` on all inputs |
+| SQL           | Always `$wpdb->prepare()` with `%s %d %f` — never string interpolation              |
+| Output        | `esc_html()`, `esc_attr()`, `wp_json_encode()` on all output                        |
+| Direct access | Every PHP file starts with `if (!defined('ABSPATH')) exit;`                         |
 
 ---
 
@@ -607,14 +609,14 @@ Same model as the old plugin, applied consistently:
 Sub-agent: **Scaffolder**
 
 Tasks:
-1. Create all folders and empty files from the directory tree in §3.
-2. Write `composer.json` with PSR-4 mapping: `RLPTNamespace\\` → `src/`.
-3. Write `rl-price-tracker.php` — plugin header, constants (`RLPT_VERSION`, `RLPT_DIR`, `RLPT_URL`), require autoload, instantiate `AdminPage`, `RegionsAjax`, `MaterialsAjax`, `MaterialPricesAjax`, `LandPricesAjax`, `MaterialsShortcode`, `LandShortcode`.
-4. Write `uninstall.php` — drop all 4 tables in reverse FK order if option `rlpt_delete_on_uninstall` is set.
-5. Write activation method inside main class — create 4 tables via `dbDelta()` in a transaction, add `rlpt_access` cap to administrator + editor.
-6. Write `index.php` (silence file).
 
-Reference: read `price-tracker.php` and `uninstall.php` from old plugin.
+1. Create all folders and empty files from the directory tree in §3.
+2. Write `composer.json` with PSR-4 mapping: `SanadTracker\\` → `includes/`.
+3. Write `sanad-tracker.php` — plugin class, constants (`SANAD_TRACKER_VERSION`, `SANAD_TRACKER_DIR`, `SANAD_TRACKER_URL`), require autoload, instantiate `AdminPage`, `RegionsAjax`, `MaterialsAjax`, `MaterialPricesAjax`, `LandPricesAjax`, `MaterialsShortcode`, `LandShortcode`.
+4. Write `uninstall.php` — drop all 4 tables in reverse FK order if option `sanad_tracker_delete_on_uninstall` is set.
+5. Write activation method inside main class — create 4 tables via `dbDelta()`, add `sanad_tracker_access` cap to administrator + editor.
+6. Write `sanad-calck.php` — plugin header (WordPress entry point), load `sanad-tracker.php`, register activation hook.
+7. Write `index.php` (silence file).
 
 ---
 
@@ -623,12 +625,13 @@ Reference: read `price-tracker.php` and `uninstall.php` from old plugin.
 Sub-agent: **Regions Agent**
 
 Tasks (in order):
+
 1. Read `settings/tabs/taxonomy.php` and `assets/js/admin/taxonomies-ajax-actions.js` from old plugin.
-2. Write `src/Ajax/RegionsAjax.php` — all 4 methods (add, edit, delete, list + publicList), nonces, capability checks, `$wpdb->prepare()`.
-3. Write `src/Admin/Tabs/RegionsTab.php` — `render()` method returns HTML for the tab (add form + list table).
+2. Write `includes/Ajax/RegionsAjax.php` — all 4 methods (add, edit, delete, list + publicList), nonces, capability checks, `$wpdb->prepare()`.
+3. Write `includes/Admin/Tabs/RegionsTab.php` — `render()` method returns HTML for the tab (add form + list table).
 4. Write `assets/js/admin/regions-ajax.js` — add, inline edit, delete with SweetAlert2.
 5. Write `assets/css/admin/admin-global.css` — tab nav and shared admin table styles.
-6. Register nonce `rlpt_regions_nonce` in `AdminPage::enqueue_assets()`.
+6. Register nonce `sanad_tracker_regions_nonce` in `AdminPage::enqueue_assets()`.
 7. Test: add a region, edit it, delete it.
 
 ---
@@ -638,9 +641,10 @@ Tasks (in order):
 Sub-agent: **Materials Agent**
 
 Tasks (in order):
+
 1. Read `settings/tabs/category.php` and `assets/js/admin/categories-ajax-actions.js` from old plugin.
-2. Write `src/Ajax/MaterialsAjax.php` — same pattern as RegionsAjax.
-3. Write `src/Admin/Tabs/MaterialsTab.php`.
+2. Write `includes/Ajax/MaterialsAjax.php` — same pattern as RegionsAjax.
+3. Write `includes/Admin/Tabs/MaterialsTab.php`.
 4. Write `assets/js/admin/materials-ajax.js`.
 5. No new CSS needed — `admin-global.css` already covers list tables.
 6. Test: add a material, edit it, delete it.
@@ -652,10 +656,11 @@ Tasks (in order):
 Sub-agent: **Material Prices Admin Agent**
 
 Tasks (in order):
+
 1. Read `settings/tabs/items.php` and `assets/js/admin/items-ajax-actions.js` and `items-page.js` from old plugin.
-2. Write `src/Ajax/MaterialPricesAjax.php` — `save()` (batch insert), `delete()`, `adminList()`.
-3. Write `src/Admin/Tabs/MaterialPricesTab.php` — region select + date + dynamic material rows + recent entries table.
-4. Write `assets/js/admin/material-prices-ajax.js` — on region change: fetch materials via `rlpt_get_materials`, render price rows, submit batch, refresh list, delete row.
+2. Write `includes/Ajax/MaterialPricesAjax.php` — `save()` (batch insert), `delete()`, `adminList()`.
+3. Write `includes/Admin/Tabs/MaterialPricesTab.php` — region select + date + dynamic material rows + recent entries table.
+4. Write `assets/js/admin/material-prices-ajax.js` — on region change: fetch materials via `sanad_tracker_get_materials`, render price rows, submit batch, refresh list, delete row.
 5. Write `assets/css/admin/prices-tab.css` — dynamic rows layout.
 6. Test: select region, see all material rows, enter prices, save, see in list, delete one.
 
@@ -666,9 +671,10 @@ Tasks (in order):
 Sub-agent: **Land Prices Admin Agent**
 
 Tasks (in order):
+
 1. Reference Phase 3 code (same pattern, simpler — always 2 fixed rows).
-2. Write `src/Ajax/LandPricesAjax.php` — `save()`, `delete()`, `adminList()`.
-3. Write `src/Admin/Tabs/LandPricesTab.php` — region select + date + 2 fixed rows.
+2. Write `includes/Ajax/LandPricesAjax.php` — `save()`, `delete()`, `adminList()`.
+3. Write `includes/Admin/Tabs/LandPricesTab.php` — region select + date + 2 fixed rows.
 4. Write `assets/js/admin/land-prices-ajax.js`.
 5. Test: select region, enter shell/fully finished prices, save, delete.
 
@@ -679,12 +685,13 @@ Tasks (in order):
 Sub-agent: **Frontend Materials Agent**
 
 Tasks (in order):
+
 1. Read `classes/ShortcodeManager.php` and `assets/js/frontend/price-tracker-table.js` from old plugin.
 2. Write `MaterialPricesAjax::frontendTable()` — SQL for latest price per material in region, indicator logic (§7), chart data query (§6).
-3. Write `src/Shortcodes/MaterialsShortcode.php` — `render()` with correct HTML structure (§5), enqueue JS + CSS + Chart.js CDN, localize nonce + ajax_url.
-4. Write `assets/js/frontend/rlpt-materials.js` — region select change → AJAX fetch → inject table → render 6 mini Chart.js charts → render indicators.
-5. Write `assets/css/frontend/rlpt-table.css` and `rlpt-chart.css`.
-6. Register shortcode `rlpt_materials` on `init`.
+3. Write `includes/Shortcodes/MaterialsShortcode.php` — `render()` with correct HTML structure (§5), enqueue JS + CSS + Chart.js CDN, localize nonce + ajax_url.
+4. Write `assets/js/frontend/sanad-materials.js` — region select change → AJAX fetch → inject table → render 6 mini Chart.js charts → render indicators.
+5. Write `assets/css/frontend/sanad-table.css` and `sanad-chart.css`.
+6. Register shortcode `sanad_materials` on `init`.
 7. Test: place shortcode, select region, verify table rows, verify charts render, verify indicators.
 
 ---
@@ -694,11 +701,12 @@ Tasks (in order):
 Sub-agent: **Frontend Land Agent**
 
 Tasks (in order):
+
 1. Reference Phase 5 code.
 2. Write `LandPricesAjax::frontendTable()` — latest shell+fully prices, both indicators, both chart data arrays.
-3. Write `src/Shortcodes/LandShortcode.php`.
-4. Write `assets/js/frontend/rlpt-land.js` — fetch → 2-row table → combined Chart.js (2 lines) → indicators.
-5. Register shortcode `rlpt_land` on `init`.
+3. Write `includes/Shortcodes/LandShortcode.php`.
+4. Write `assets/js/frontend/sanad-land.js` — fetch → 2-row table → combined Chart.js (2 lines) → indicators.
+5. Register shortcode `sanad_land` on `init`.
 6. Test: place shortcode, select region, verify both rows, verify combined chart, verify indicators.
 
 ---
@@ -708,8 +716,9 @@ Tasks (in order):
 Sub-agent: **Shortcode Generator Agent**
 
 Tasks (in order):
+
 1. Read `settings/tabs/shortcode-maker.php` and `assets/js/admin/shortcode-maker.js` from old plugin.
-2. Write `src/Admin/Tabs/ShortcodeGeneratorTab.php` — type select, region select, title input, live preview textarea, copy button.
+2. Write `includes/Admin/Tabs/ShortcodeGeneratorTab.php` — type select, region select, title input, live preview textarea, copy button.
 3. Write `assets/js/admin/shortcode-gen.js` — live builder logic.
 4. Write `assets/css/admin/shortcode-gen.css`.
 5. Test: pick type + region → shortcode updates live → copy works.
@@ -721,12 +730,13 @@ Tasks (in order):
 Sub-agent: **Admin Wiring Agent**
 
 Tasks (in order):
-1. Write `src/Admin/AdminPage.php`:
-   - `add_setting_page()` → menu slug `rl-price-tracker`, icon `dashicons-location`, cap `rlpt_access`
+
+1. Write `includes/Admin/AdminPage.php`:
+   - `add_setting_page()` → menu slug `sanad-tracker`, icon `dashicons-location`, cap `sanad_tracker_access`
    - `admin_tabs()` → 5 tabs: Regions, Materials, Material Prices, Land Prices, Shortcode Generator
    - `settings_page_render()` → includes correct Tab class `render()` based on `$_GET['tab']`
-   - `enqueue_assets($hook)` → only on `toplevel_page_rl-price-tracker`; enqueues Select2 (CDN), SweetAlert2 (CDN), all admin JS with localized nonces, admin CSS
-2. Register `rlpt_delete_on_uninstall` option in `admin_init`.
+   - `enqueue_assets($hook)` → only on `toplevel_page_sanad-tracker`; enqueues Select2 (CDN), SweetAlert2 (CDN), all admin JS with localized nonces, admin CSS
+2. Register `sanad_tracker_delete_on_uninstall` option in `admin_init`.
 3. Test: all 5 tabs load, no JS errors.
 
 ---
@@ -754,31 +764,31 @@ Sub-agent: **QA Agent**
 
 ### Shortcodes
 
-| Shortcode | Attributes | JS file | AJAX action |
-|-----------|-----------|---------|-------------|
-| `[rlpt_materials]` | `region`, `title` | `rlpt-materials.js` | `rlpt_get_materials_table` |
-| `[rlpt_land]` | `region`, `title` | `rlpt-land.js` | `rlpt_get_land_table` |
+| Shortcode           | Attributes        | JS file              | AJAX action                       |
+| ------------------- | ----------------- | -------------------- | --------------------------------- |
+| `[sanad_materials]` | `region`, `title` | `sanad-materials.js` | `sanad_tracker_get_materials_table` |
+| `[sanad_land]`      | `region`, `title` | `sanad-land.js`      | `sanad_tracker_get_land_table`      |
 
 ### Admin URL Structure
 
 ```
-wp-admin/admin.php?page=rl-price-tracker                        → Regions (default)
-wp-admin/admin.php?page=rl-price-tracker&tab=materials          → Materials
-wp-admin/admin.php?page=rl-price-tracker&tab=material_prices    → Material Prices
-wp-admin/admin.php?page=rl-price-tracker&tab=land_prices        → Land Prices
-wp-admin/admin.php?page=rl-price-tracker&tab=shortcode_generator→ Shortcode Generator
+wp-admin/admin.php?page=sanad-tracker                        → Regions (default)
+wp-admin/admin.php?page=sanad-tracker&tab=materials          → Materials
+wp-admin/admin.php?page=sanad-tracker&tab=material_prices    → Material Prices
+wp-admin/admin.php?page=sanad-tracker&tab=land_prices        → Land Prices
+wp-admin/admin.php?page=sanad-tracker&tab=shortcode_generator→ Shortcode Generator
 ```
 
 ### CSS Class Conventions
 
-| Class | Used for |
-|-------|----------|
-| `.rlpt-materials-wrapper` | Materials shortcode outer container |
-| `.rlpt-land-wrapper` | Land shortcode outer container |
-| `.rlpt-region-selector` | Region dropdown wrapper (frontend) |
-| `.rlpt-loader` | CSS spinner shown during AJAX |
-| `.rlpt-mini-chart` | Canvas for per-row mini chart |
-| `.rlpt-land-chart` | Canvas for combined land chart |
-| `.rlpt-indicator.up` | Green ↑ indicator |
-| `.rlpt-indicator.down` | Red ↓ indicator |
-| `.rlpt-indicator.neutral` | Grey — indicator |
+| Class                          | Used for                            |
+| ------------------------------ | ----------------------------------- |
+| `.sanad-materials-wrapper`     | Materials shortcode outer container |
+| `.sanad-land-wrapper`          | Land shortcode outer container      |
+| `.sanad-region-selector`       | Region dropdown wrapper (frontend)  |
+| `.sanad-loader`                | CSS spinner shown during AJAX       |
+| `.sanad-mini-chart`            | Canvas for per-row mini chart       |
+| `.sanad-land-chart`            | Canvas for combined land chart      |
+| `.sanad-indicator.up`          | Green ↑ indicator                   |
+| `.sanad-indicator.down`        | Red ↓ indicator                     |
+| `.sanad-indicator.neutral`     | Grey — indicator                    |

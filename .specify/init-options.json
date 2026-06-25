@@ -1,8 +1,8 @@
 {
   "ai": "opencode",
-  "feature_numbering": "sequential",
-  "here": false,
+  "branch_numbering": "sequential",
+  "here": true,
   "integration": "opencode",
   "script": "ps",
-  "speckit_version": "0.11.1"
+  "speckit_version": "0.9.1"
 }

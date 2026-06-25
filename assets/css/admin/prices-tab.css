@@ -1,0 +1,194 @@
+.sanad-price-form {
+    max-width: 700px;
+}
+
+.sanad-price-form .form-table th {
+    width: 150px;
+}
+
+.sanad-price-form .form-table td {
+    vertical-align: middle;
+}
+
+#material-prices-rows-wrapper {
+    margin-top: 20px;
+}
+
+.material-price-row th {
+    font-weight: 600;
+}
+
+.mp-material-price {
+    width: 200px;
+    max-width: 100%;
+}
+
+#land-prices-rows-wrapper {
+    margin-top: 20px;
+}
+
+#land-prices-rows-wrapper .form-table input[type="number"] {
+    width: 200px;
+    max-width: 100%;
+}
+
+#material-prices-list-table,
+#land-prices-list-table {
+    margin-top: 15px;
+}
+
+.sanad-matrix-placeholder {
+    margin: 15px 0;
+}
+
+.sanad-matrix-scroll {
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+.sanad-matrix-grid {
+    --grid-cols: 120px 130px;
+    min-width: 600px;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    width: max-content;
+    max-width: none;
+}
+
+.sanad-matrix-grid .matrix-header-row,
+.sanad-matrix-grid .matrix-data-row {
+    display: grid;
+    grid-template-columns: var(--grid-cols);
+}
+
+.sanad-matrix-grid .matrix-header-row .matrix-cell,
+.sanad-matrix-grid .matrix-data-row .matrix-cell {
+    padding: 8px 10px;
+    border-bottom: 1px solid #ccd0d4;
+    vertical-align: middle;
+    background: #fff;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sanad-matrix-grid .matrix-header-row .matrix-cell {
+    font-weight: 600;
+    background: #f1f1f1;
+    border-bottom: 1px solid #ccd0d4;
+}
+
+.sanad-matrix-grid .matrix-body .matrix-data-row:nth-child(odd) .matrix-cell {
+    background: #f9f9f9;
+}
+
+.sanad-matrix-grid .matrix-data-row .cell-date {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.sanad-matrix-grid .matrix-data-row .cell-actions {
+    white-space: nowrap;
+}
+
+.sanad-matrix-grid .mp-inline-price {
+    width: 100px;
+    max-width: 100%;
+}
+
+.sanad-matrix-grid .matrix-data-row .mp-price-cell {
+    text-align: right;
+}
+
+.sanad-matrix-grid .matrix-data-row .mp-price-cell .mp-inline-price {
+    text-align: right;
+}
+
+.sanad-matrix-grid .edit-row-btn,
+.sanad-matrix-grid .save-row-btn {
+    color: #2271b1;
+}
+
+.sanad-matrix-grid .delete-date-row-btn,
+.sanad-matrix-grid .cancel-row-btn {
+    color: #b32d2e;
+}
+
+.sanad-matrix-grid .delete-date-row-btn:hover,
+.sanad-matrix-grid .cancel-row-btn:hover {
+    background: #b32d2e;
+    color: #fff;
+    border-color: #b32d2e;
+}
+
+/* Land Prices Inline Editing */
+#land-prices-list-table .lp-inline-price {
+    width: 120px;
+    max-width: 100%;
+}
+
+#land-prices-list-table .edit-land-price-btn,
+#land-prices-list-table .save-land-price-btn {
+    color: #2271b1;
+}
+
+#land-prices-list-table .cancel-land-price-btn {
+    color: #b32d2e;
+}
+
+#land-prices-list-table .edit-land-price-btn:hover,
+#land-prices-list-table .save-land-price-btn:hover {
+    background: #2271b1;
+    color: #fff;
+    border-color: #2271b1;
+}
+
+#land-prices-list-table .cancel-land-price-btn:hover {
+    background: #b32d2e;
+    color: #fff;
+    border-color: #b32d2e;
+}
+
+.button-secondary.delete-material-price-btn,
+.button-secondary.delete-land-price-btn {
+    color: #b32d2e;
+}
+
+.button-secondary.delete-material-price-btn:hover,
+.button-secondary.delete-land-price-btn:hover {
+    background: #b32d2e;
+    color: #fff;
+    border-color: #b32d2e;
+}
+
+.sanad-price-form .select2-container {
+    min-width: 200px;
+}
+
+.sanad-price-form input[type="date"] {
+    width: 200px;
+}
+
+@media screen and (max-width: 782px) {
+    .sanad-price-form .form-table th {
+        width: auto;
+    }
+
+    .mp-material-price,
+    #land-prices-rows-wrapper .form-table input[type="number"],
+    .sanad-price-form input[type="date"] {
+        width: 100%;
+    }
+
+    .sanad-price-form .select2-container {
+        width: 100% !important;
+    }
+
+    .sanad-matrix-grid .mp-inline-price {
+        width: 80px;
+    }
+
+    #land-prices-list-table .lp-inline-price {
+        width: 90px;
+    }
+}
