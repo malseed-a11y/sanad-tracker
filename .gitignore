@@ -1,7 +1,22 @@
-.opencode
-.specify
-commands
-price-tracker
-specs
-plan.md
+# === AI / Template Generated Folders ===
+.agents/
+.opencode/
+.specify/
+commands/
+price-tracker/
+specs/
+
+# === AI / Template Generated Files ===
+agent.md
 AGENTS.md
+plan.md
+skills-lock.json
+
+# === PHP / Dependency Managers ===
+vendor/
+composer.lock
+
+# === OS & IDE Cache ===
+.DS_Store
+Thumbs.db
+*.log
