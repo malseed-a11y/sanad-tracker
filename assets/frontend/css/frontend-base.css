@@ -1,0 +1,99 @@
+.sanad-materials-wrapper,
+.sanad-land-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+}
+
+.sanad-materials-wrapper h3,
+.sanad-land-wrapper h3 {
+    margin: 0 0 16px;
+    font-size: 1.4em;
+    color: #1e293b;
+}
+
+.sanad-region-selector {
+    display: block;
+    margin-bottom: 16px;
+}
+
+.sanad-region-select {
+    width: 100%;
+    max-width: 320px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #fff;
+    color: #1e293b;
+    cursor: pointer;
+}
+
+.sanad-loader {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.sanad-loader::after {
+    content: '';
+    width: 32px;
+    height: 32px;
+    border: 3px solid #e2e8f0;
+    border-top-color: #2563eb;
+    border-radius: 50%;
+    animation: sanad-spin 0.6s linear infinite;
+}
+
+@keyframes sanad-spin {
+    to { transform: rotate(360deg); }
+}
+
+.sanad-indicator-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1.5;
+}
+
+.sanad-indicator-badge.up {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.sanad-indicator-badge.down {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.sanad-indicator-badge.neutral {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.sanad-mini-chart {
+    display: block;
+    width: 150px;
+    height: 40px;
+    max-width: 100%;
+}
+
+.sanad-land-chart {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
+    margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .sanad-materials-wrapper,
+    .sanad-land-wrapper {
+        font-size: 14px;
+    }
+}

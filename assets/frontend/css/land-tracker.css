@@ -1,0 +1,60 @@
+.sanad-land-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.sanad-land-table thead tr,
+.sanad-land-table tbody tr {
+    display: grid;
+    grid-template-columns: minmax(130px, 160px) minmax(100px, 1fr) minmax(70px, 90px);
+}
+
+.sanad-land-table thead {
+    background: #f8fafc;
+}
+
+.sanad-land-table th,
+.sanad-land-table td {
+    padding: 10px 16px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.sanad-land-table th {
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.sanad-land-table td {
+    color: #1e293b;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.sanad-land-table th:nth-child(2),
+.sanad-land-table td:nth-child(2) { text-align: right; }
+
+.sanad-land-table th:nth-child(3),
+.sanad-land-table td:nth-child(3) { text-align: center; }
+
+.sanad-land-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.sanad-land-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+@media (max-width: 600px) {
+    .sanad-land-table th,
+    .sanad-land-table td {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+}

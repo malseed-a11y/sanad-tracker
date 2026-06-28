@@ -1,0 +1,68 @@
+#land-prices-rows-wrapper {
+    margin-top: 20px;
+}
+
+#land-prices-rows-wrapper .form-table input[type="number"] {
+    width: 200px;
+    max-width: 100%;
+}
+
+#land-prices-list-table {
+    margin-top: 15px;
+}
+
+#land-prices-list-table .lp-inline-price {
+    width: 120px;
+    max-width: 100%;
+}
+
+#land-prices-list-table .edit-land-price-btn,
+#land-prices-list-table .save-land-price-btn {
+    color: #2271b1;
+}
+
+#land-prices-list-table .cancel-land-price-btn {
+    color: #b32d2e;
+}
+
+#land-prices-list-table .edit-land-price-btn:hover,
+#land-prices-list-table .save-land-price-btn:hover {
+    background: #2271b1;
+    color: #fff;
+    border-color: #2271b1;
+}
+
+#land-prices-list-table .cancel-land-price-btn:hover {
+    background: #b32d2e;
+    color: #fff;
+    border-color: #b32d2e;
+}
+
+.button-secondary.delete-land-price-btn {
+    color: #b32d2e;
+}
+
+.button-secondary.delete-land-price-btn:hover {
+    background: #b32d2e;
+    color: #fff;
+    border-color: #b32d2e;
+}
+
+.sanad-price-form .select2-container {
+    min-width: 200px;
+}
+
+.sanad-price-form input[type="date"] {
+    width: 200px;
+}
+
+@media screen and (max-width: 782px) {
+    #land-prices-rows-wrapper .form-table input[type="number"],
+    .sanad-price-form input[type="date"] {
+        width: 100%;
+    }
+
+    #land-prices-list-table .lp-inline-price {
+        width: 90px;
+    }
+}
