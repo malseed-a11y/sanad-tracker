@@ -209,6 +209,8 @@ class AdminPage
                 'confirm_delete_date_text'  => __('All prices for this date will be permanently deleted.', 'sanad-tracker'),
                 'deleting'               => __('Deleting...', 'sanad-tracker'),
                 'saving'                 => __('Saving...', 'sanad-tracker'),
+                'date'                      => __('Date', 'sanad-tracker'),
+                'actions'                   => __('Actions', 'sanad-tracker'),
             ],
         ]);
 

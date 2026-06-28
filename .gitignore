@@ -5,7 +5,8 @@
 commands/
 price-tracker/
 specs/
-
+graphify-out/
+graphify-out.graphify_chunk_00.json
 # === AI / Template Generated Files ===
 agent.md
 AGENTS.md
@@ -20,3 +21,5 @@ composer.lock
 .DS_Store
 Thumbs.db
 *.log
+
+

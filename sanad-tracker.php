@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Sanad Tracker
  * Description: A plugin to track buy/sell prices and rate changes for commodities.
- * Version: 1.0.1
+ * Version: 1.0.3
  * Author: 2P
  * Author URI: https://2p.com.tr
  * Text Domain: sanad-tracker
@@ -25,7 +25,7 @@ if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
 }
 
 // Constants
-define('SANAD_TRACKER_VERSION', '1.0.1');
+define('SANAD_TRACKER_VERSION', '1.0.3');
 define('SANAD_TRACKER_DIR', __DIR__);
 define('SANAD_TRACKER_URL', plugin_dir_url(__FILE__));
 

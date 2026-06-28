@@ -48,11 +48,9 @@
 
 .sanad-matrix-grid {
     --grid-cols: 120px 130px;
-    min-width: 600px;
     border: 1px solid #ccd0d4;
     border-radius: 4px;
-    width: max-content;
-    max-width: none;
+    width: 100%;
 }
 
 .sanad-matrix-grid .matrix-header-row,

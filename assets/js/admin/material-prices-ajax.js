@@ -30,12 +30,12 @@ jQuery(document).ready(function ($) {
     });
 
     function renderTableHeaders() {
-        let html = '<div class="matrix-header-row"><div class="matrix-cell col-date">Date</div>';
-        const colWidths = materials.map(function () { return 'minmax(80px, 120px)'; }).join(' ');
+        let html = '<div class="matrix-cell col-date">' + i18n.date + '</div>';
+        const colWidths = materials.map(function () { return '1fr'; }).join(' ');
         $.each(materials, function (i, mat) {
             html += '<div class="matrix-cell col-material">' + escHtml(mat.name) + '</div>';
         });
-        html += '<div class="matrix-cell col-actions">Actions</div></div>';
+        html += '<div class="matrix-cell col-actions">' + i18n.actions + '</div>';
         listHeader.html(html);
         listTableWrap.css('--grid-cols', '120px ' + colWidths + ' 130px');
     }
@@ -124,7 +124,7 @@ jQuery(document).ready(function ($) {
 
             $.each(materials, function (j, mat) {
                 const matIdKey = toMaterialId(mat.id);
-                const price = row.prices[matIdKey] || '';
+                const price = row.prices[matIdKey] != null ? row.prices[matIdKey] : '';
                 html += '<div class="matrix-cell mp-price-cell" data-material-id="' + matIdKey + '" data-original="' + escHtml(price) + '">' + escHtml(price) + '</div>';
             });
 
