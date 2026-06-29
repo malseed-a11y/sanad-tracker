@@ -72,14 +72,20 @@ class MaterialsShortcode
         ob_start();
         ?>
         <div class="sanad-materials-wrapper" data-region="<?php echo esc_attr($atts['region']); ?>">
-            <h3><?php echo esc_html($atts['title']); ?></h3>
-            <div class="sanad-region-selector" <?php echo $regionStyle; ?>>
-                <select class="sanad-region-select">
-                    <option value=""><?php esc_html_e('Select a region', 'sanad-tracker'); ?></option>
-                </select>
+            <div class="sanad-header-row">
+                <h3><?php echo esc_html($atts['title']); ?></h3>
+                <div class="sanad-region-selector" <?php echo $regionStyle; ?>>
+                    <select class="sanad-region-select">
+                        <option value=""><?php esc_html_e('Select a region', 'sanad-tracker'); ?></option>
+                    </select>
+                </div>
             </div>
             <div class="sanad-loader"></div>
-            <div class="sanad-materials-table-container"></div>
+            <div class="sanad-materials-card">
+                <div class="sanad-table-responsive">
+                    <div class="sanad-materials-table-container"></div>
+                </div>
+            </div>
         </div>
         <?php
         return ob_get_clean();

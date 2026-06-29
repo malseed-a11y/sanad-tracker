@@ -1,99 +1,234 @@
-.sanad-materials-wrapper,
-.sanad-land-wrapper {
-    max-width: 100%;
-    overflow-x: auto;
-    margin: 20px 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  --sanad-surface: #f9f9f9;
+  --sanad-surface-dim: #dadada;
+  --sanad-surface-bright: #f9f9f9;
+  --sanad-surface-container-lowest: #ffffff;
+  --sanad-surface-container-low: #f8f9fa;
+  --sanad-surface-container: #eeeeee;
+  --sanad-surface-container-high: #f1f3f4;
+  --sanad-surface-container-highest: #e2e2e2;
+  --sanad-on-surface: #1a1c1c;
+  --sanad-on-surface-variant: #404847;
+  --sanad-inverse-surface: #2f3131;
+  --sanad-inverse-on-surface: #f0f1f1;
+  --sanad-outline: #717977;
+  --sanad-outline-variant: #e2e8f0;
+  --sanad-primary: #001c19;
+  --sanad-on-primary: #ffffff;
+  --sanad-primary-container: #00332e;
+  --sanad-on-primary-container: #709c95;
+  --sanad-secondary: #725b23;
+  --sanad-on-secondary: #ffffff;
+  --sanad-secondary-container: #fcdc96;
+  --sanad-on-secondary-container: #776026;
+  --sanad-tertiary: #2d0f05;
+  --sanad-tertiary-container: #462316;
+  --sanad-on-tertiary-container: #bc8876;
+  --sanad-error: #ba1a1a;
+  --sanad-error-container: #ffdad6;
+  --sanad-up: #16a34a;
+  --sanad-down: #dc2626;
+  --sanad-neutral: #64748b;
+  --sanad-mat-gold: #C49B3A;
+  --sanad-gimblet: #B5B470;
+  --sanad-fiord: #425C61;
+  --sanad-font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sanad-font-body: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.sanad-materials-wrapper h3,
-.sanad-land-wrapper h3 {
-    margin: 0 0 16px;
-    font-size: 1.4em;
-    color: #1e293b;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.sanad-land-wrapper,
+.sanad-materials-wrapper {
+  margin: 40px 0;
+  font-family: var(--sanad-font-body);
+  color: var(--sanad-on-surface);
+  line-height: 1.6;
+  direction: ltr;
+}
+
+body.rtl .sanad-land-wrapper,
+body.rtl .sanad-materials-wrapper {
+  direction: rtl;
+  text-align: right;
+}
+
+.sanad-land-wrapper h3,
+.sanad-materials-wrapper h3 {
+  margin: 0 0 28px;
+  font-family: var(--sanad-font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--sanad-primary-container);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.sanad-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.sanad-header-row h3 {
+  margin: 0;
 }
 
 .sanad-region-selector {
-    display: block;
-    margin-bottom: 16px;
+  position: relative;
 }
 
 .sanad-region-select {
-    width: 100%;
-    max-width: 320px;
-    padding: 8px 12px;
-    font-size: 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    background: #fff;
-    color: #1e293b;
-    cursor: pointer;
+  width: 220px;
+  padding: 10px 36px 10px 14px;
+  font-family: var(--sanad-font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--sanad-on-surface);
+  background-color: var(--sanad-surface-container-lowest);
+  border: 1px solid var(--sanad-outline-variant);
+  border-radius: 8px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23425C61' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 10px 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+body.rtl .sanad-region-select {
+  background-position: left 14px center;
+  padding: 10px 14px 10px 36px;
+}
+
+.sanad-region-select:focus {
+  outline: none;
+  border-color: var(--sanad-fiord);
+  box-shadow: 0 0 0 3px rgba(66, 92, 97, 0.15);
 }
 
 .sanad-loader {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--sanad-fiord);
 }
 
 .sanad-loader::after {
-    content: '';
-    width: 32px;
-    height: 32px;
-    border: 3px solid #e2e8f0;
-    border-top-color: #2563eb;
-    border-radius: 50%;
-    animation: sanad-spin 0.6s linear infinite;
+  content: '';
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--sanad-outline-variant);
+  border-top-color: var(--sanad-primary-container);
+  border-radius: 50%;
+  animation: sanad-spin 0.6s linear infinite;
 }
 
 @keyframes sanad-spin {
-    to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sanad-error {
+  padding: 14px 18px;
+  color: var(--sanad-down);
+  font-size: 14px;
+  font-family: var(--sanad-font-body);
+  border-radius: 8px;
+  border-left: 4px solid var(--sanad-down);
+  background: #fef2f2;
+  margin: 16px 0;
+}
+
+body.rtl .sanad-error {
+  border-left: none;
+  border-right: 4px solid var(--sanad-down);
 }
 
 .sanad-indicator-badge {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 13px;
-    font-weight: 600;
-    white-space: nowrap;
-    line-height: 1.5;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  font-family: var(--sanad-font-body);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: 6px;
 }
 
 .sanad-indicator-badge.up {
-    background: #dcfce7;
-    color: #16a34a;
+  background: #f0fdf4;
+  color: var(--sanad-up);
 }
 
 .sanad-indicator-badge.down {
-    background: #fef2f2;
-    color: #dc2626;
+  background: #fef2f2;
+  color: var(--sanad-down);
 }
 
 .sanad-indicator-badge.neutral {
-    background: #f1f5f9;
-    color: #64748b;
+  background: var(--sanad-surface-container-high);
+  color: var(--sanad-neutral);
 }
 
 .sanad-mini-chart {
-    display: block;
-    width: 150px;
-    height: 40px;
-    max-width: 100%;
-}
-
-.sanad-land-chart {
-    display: block;
-    width: 100%;
-    max-width: 800px;
-    height: 300px;
-    margin: 20px 0;
+  display: block;
+  width: 120px;
+  height: 36px;
+  max-width: 100%;
 }
 
 @media (max-width: 600px) {
-    .sanad-materials-wrapper,
-    .sanad-land-wrapper {
-        font-size: 14px;
-    }
+  .sanad-land-wrapper,
+  .sanad-materials-wrapper {
+    margin: 24px 0;
+  }
+
+  .sanad-land-wrapper h3,
+  .sanad-materials-wrapper h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .sanad-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .sanad-header-row h3 {
+    margin: 0;
+  }
+
+  .sanad-region-select {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .sanad-mini-chart {
+    width: 80px;
+    height: 28px;
+  }
+
+  .sanad-loader {
+    padding: 32px 0;
+  }
 }

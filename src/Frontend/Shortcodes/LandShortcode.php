@@ -58,30 +58,33 @@ class LandShortcode
             'nonce'    => wp_create_nonce('sanad_tracker_frontend_land_nonce'),
             'region'   => $regionSlug,
             'i18n'     => [
-                'loading'        => __('Loading...', 'sanad-tracker'),
-                'error'          => __('Error loading data.', 'sanad-tracker'),
-                'no_data'        => __('No data available for this region.', 'sanad-tracker'),
-                'shell_core'     => __('Shell & Core', 'sanad-tracker'),
-                'fully_finished' => __('Fully Finished', 'sanad-tracker'),
-                'latest_price'   => __('Latest Price', 'sanad-tracker'),
-                'indicator'      => __('Trend', 'sanad-tracker'),
-                'select_region'  => __('Select a region...', 'sanad-tracker'),
-                'type'           => __('Type', 'sanad-tracker'),
+                'loading'          => __('Loading...', 'sanad-tracker'),
+                'error'            => __('Error loading data.', 'sanad-tracker'),
+                'no_data'          => __('No data available for this region.', 'sanad-tracker'),
+                'shell_core'       => __('Shell & Core', 'sanad-tracker'),
+                'fully_finished'   => __('Fully Finished', 'sanad-tracker'),
+                'latest_price'     => __('Latest Price', 'sanad-tracker'),
+                'indicator'        => __('Trend', 'sanad-tracker'),
+                'select_region'    => __('Select a region...', 'sanad-tracker'),
+                'type'             => __('Type', 'sanad-tracker'),
+                'historical_trend' => __('Historical Trend', 'sanad-tracker'),
             ],
         ]);
 
         ob_start();
         ?>
         <div class="sanad-land-wrapper" data-region="<?php echo esc_attr($regionSlug); ?>">
-            <h3><?php echo esc_html($title); ?></h3>
-            <?php if (empty($regionSlug)): ?>
-            <div class="sanad-region-selector">
-                <select class="sanad-region-select">
-                    <option value=""><?php esc_html_e('Select a region...', 'sanad-tracker'); ?></option>
-                </select>
+            <div class="sanad-header-row">
+                <h3><?php echo esc_html($title); ?></h3>
+                <?php if (empty($regionSlug)): ?>
+                <div class="sanad-region-selector">
+                    <select class="sanad-region-select">
+                        <option value=""><?php esc_html_e('Select a region...', 'sanad-tracker'); ?></option>
+                    </select>
+                </div>
+                <?php endif; ?>
             </div>
-            <?php endif; ?>
-            <div class="sanad-loader"><?php esc_html_e('Loading...', 'sanad-tracker'); ?></div>
+            <div class="sanad-loader"></div>
             <div class="sanad-land-table-container"></div>
         </div>
         <?php
