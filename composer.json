@@ -1,14 +1,20 @@
 {
-    "name": "sanad-tracker/sanad-tracker",
-    "description": "Region & Land Price Tracker WordPress Plugin",
-    "type": "wordpress-plugin",
-    "license": "GPL-2.0-or-later",
-    "require": {
-        "php": ">=8.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "SanadTracker\\": "src/"
-        }
+  "name": "sanad-tracker/sanad-tracker",
+  "description": "Region & Land Price Tracker WordPress Plugin",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "wp-cli/i18n-command": "^2.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "SanadTracker\\": "src/"
     }
+  },
+  "scripts": {
+    "make-pot": "php vendor/wp-cli/wp-cli/php/boot-fs.php i18n make-pot . languages/sanad-tracker.pot --skip-js --ignore-domain"
+  }
 }

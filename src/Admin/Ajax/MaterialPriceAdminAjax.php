@@ -48,6 +48,7 @@ class MaterialPriceAdminAjax
             wp_send_json_error(['message' => __('No valid prices to save.', 'sanad-tracker')]);
         }
 
+        /* translators: %d: number of prices saved */
         wp_send_json_success(['message' => sprintf(__('Saved %d price(s).', 'sanad-tracker'), $inserted)]);
     }
 
@@ -113,8 +114,10 @@ class MaterialPriceAdminAjax
             ]);
         }
 
+        /* translators: 1: number updated, 2: number inserted, 3: number deleted */
         wp_send_json_success([
             'message' => sprintf(
+                /* translators: 1: number updated, 2: number inserted, 3: number deleted */
                 __('Updated: %1$d, Inserted: %2$d, Deleted: %3$d', 'sanad-tracker'),
                 $result['updated'],
                 $result['inserted'],

@@ -1,328 +1,542 @@
-# Copyright (C) 2025 2P
+# Copyright (C) 2026 2P
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: Sanad Tracker 1.0.3\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sanad-tracker\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: 2P <info@2p.com.tr>\n"
-"Language: en\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "-- Select Region --"
-msgstr ""
-
-msgid "Actions"
-msgstr ""
-
-msgid "Add Material"
-msgstr ""
-
-msgid "Add Region"
-msgstr ""
-
-msgid "Added!"
-msgstr ""
-
-msgid "All entries for this date have been deleted."
-msgstr ""
-
-msgid "All prices for this date will be permanently deleted."
-msgstr ""
-
-msgid "An error occurred."
-msgstr ""
-
-msgid "Are you sure?"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
-msgid "Copy and paste these shortcodes into any post or page."
-msgstr ""
-
-msgid "Date"
-msgstr ""
-
-msgid "Delete"
-msgstr ""
-
-msgid "Delete all data on uninstall"
-msgstr ""
-
-msgid "Delete all entries?"
-msgstr ""
-
-msgid "Deleted!"
-msgstr ""
-
-msgid "Deleting..."
-msgstr ""
-
-msgid "Edit"
-msgstr ""
-
-msgid "Edit Material"
-msgstr ""
-
-msgid "Edit Region"
-msgstr ""
-
-msgid "Enter price"
-msgstr ""
-
-msgid "Entry deleted."
-msgstr ""
-
-msgid "Error"
-msgstr ""
-
-msgid "Error loading data."
-msgstr ""
-
-msgid "Existing Materials"
-msgstr ""
-
-msgid "Existing Regions"
-msgstr ""
-
-msgid "Fully Finished"
-msgstr ""
-
-msgid "Historical Trend"
-msgstr ""
-
-msgid "ID"
-msgstr ""
-
-msgid "Indicator"
-msgstr ""
-
-msgid "Invalid data."
-msgstr ""
-
-msgid "Invalid ID."
-msgstr ""
-
-msgid "Invalid material ID."
-msgstr ""
-
-msgid "Invalid region ID."
-msgstr ""
-
-msgid "Invalid region."
-msgstr ""
-
-msgid "Land Prices"
-msgstr ""
-
-msgid "Land prices saved."
-msgstr ""
-
-msgid "Land Prices Table"
-msgstr ""
-
-msgid "Land prices updated."
-msgstr ""
-
-msgid "Latest Price"
-msgstr ""
-
-msgid "Loading..."
-msgstr ""
-
-msgid "Manage Land Prices"
-msgstr ""
-
-msgid "Manage Material Prices"
-msgstr ""
-
-msgid "Manage Materials"
-msgstr ""
-
-msgid "Manage Regions"
-msgstr ""
-
-msgid "Material"
-msgstr ""
-
-msgid "Material added."
-msgstr ""
-
-msgid "Material deleted."
-msgstr ""
-
-msgid "Material Name"
-msgstr ""
-
-msgid "Material name is required."
-msgstr ""
-
-msgid "Material Prices"
-msgstr ""
-
-msgid "Material Prices Table"
-msgstr ""
-
-msgid "Material updated."
-msgstr ""
-
-msgid "Material with this name already exists."
-msgstr ""
-
-msgid "Materials"
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "No data available for this region."
-msgstr ""
-
-msgid "No data available."
-msgstr ""
-
-msgid "No materials found for this region."
-msgstr ""
-
-msgid "No materials found."
-msgstr ""
-
-msgid "No permission."
-msgstr ""
-
-msgid "No price entries found."
-msgstr ""
-
-msgid "No prices provided."
-msgstr ""
-
-msgid "No regions found."
-msgstr ""
-
-msgid "No valid prices to save."
-msgstr ""
-
-msgid "Please enter at least one price."
-msgstr ""
-
-msgid "Price Chart"
-msgstr ""
-
-msgid "Recent Entries"
-msgstr ""
-
-msgid "Region"
-msgstr ""
-
-msgid "Region & Land Price Tracker"
-msgstr ""
-
-msgid "Region added."
-msgstr ""
-
-msgid "Region and date are required."
-msgstr ""
-
-msgid "Region deleted."
-msgstr ""
-
-msgid "Region Name"
-msgstr ""
-
-msgid "Region name is required."
-msgstr ""
-
-msgid "Region updated."
-msgstr ""
-
-msgid "Region with this name already exists."
-msgstr ""
-
-msgid "Regions"
-msgstr ""
-
+"POT-Creation-Date: 2026-06-29T15:06:52+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. Plugin Name of the plugin
+#: sanad-tracker.php:4
+#: src/Admin/AdminMenu.php:27
 msgid "Sanad Tracker"
 msgstr ""
 
-msgid "Save"
+#. Description of the plugin
+#: sanad-tracker.php:5
+msgid "A plugin to track buy/sell prices and rate changes for commodities."
 msgstr ""
 
-msgid "Save Prices"
+#. Author of the plugin
+#: sanad-tracker.php:7
+msgid "2P"
 msgstr ""
 
-msgid "Saved %d price(s)."
+#. Author URI of the plugin
+#: sanad-tracker.php:8
+msgid "https://2p.com.tr"
 msgstr ""
 
-msgid "Saved!"
+#: src/Admin/AdminMenu.php:26
+#: src/Admin/AdminMenu.php:54
+msgid "Region & Land Price Tracker"
 msgstr ""
 
-msgid "Saving..."
-msgstr ""
-
-msgid "Select a region"
-msgstr ""
-
-msgid "Select a region to load materials."
-msgstr ""
-
-msgid "Select a region to view entries."
-msgstr ""
-
-msgid "Select a region..."
-msgstr ""
-
-msgid "Shell & Core"
-msgstr ""
-
-msgid "Shortcode Generator"
-msgstr ""
-
-msgid "Shortcodes"
-msgstr ""
-
-msgid "Slug"
-msgstr ""
-
-msgid "This material will be permanently deleted."
-msgstr ""
-
-msgid "This price entry will be permanently deleted."
-msgstr ""
-
-msgid "This region will be permanently deleted along with all its prices."
-msgstr ""
-
-msgid "Trend"
-msgstr ""
-
-msgid "Type"
-msgstr ""
-
+#: src/Admin/AdminMenu.php:39
 msgid "Unauthorized."
 msgstr ""
 
+#: src/Admin/AdminMenu.php:45
+msgid "Regions"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:46
+msgid "Materials"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:47
+#: src/Frontend/Shortcodes/MaterialsShortcode.php:20
+msgid "Material Prices"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:48
+msgid "Land Prices"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:49
+msgid "Shortcode Generator"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:91
 msgid "Uninstall Settings"
 msgstr ""
 
-msgid "Update Material"
+#: src/Admin/AdminMenu.php:95
+msgid "Delete all data on uninstall"
 msgstr ""
 
-msgid "Update Region"
+#: src/Admin/AdminMenu.php:187
+#: src/Admin/AdminMenu.php:205
+msgid "Added!"
 msgstr ""
 
+#: src/Admin/AdminMenu.php:188
+#: src/Admin/AdminMenu.php:206
 msgid "Updated!"
 msgstr ""
 
-msgid "Updated: %1$d, Inserted: %2$d, Deleted: %3$d"
+#: src/Admin/AdminMenu.php:189
+#: src/Admin/AdminMenu.php:207
+#: src/Admin/AdminMenu.php:231
+#: src/Admin/AdminMenu.php:260
+msgid "Deleted!"
 msgstr ""
 
+#: src/Admin/AdminMenu.php:190
+#: src/Admin/AdminMenu.php:208
+#: src/Admin/AdminMenu.php:232
+#: src/Admin/AdminMenu.php:261
+msgid "Error"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:191
+#: src/Admin/AdminMenu.php:209
+#: src/Admin/AdminMenu.php:233
+#: src/Admin/AdminMenu.php:262
+msgid "Are you sure?"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:192
+msgid "This region will be permanently deleted along with all its prices."
+msgstr ""
+
+#: src/Admin/AdminMenu.php:193
+#: src/Admin/AdminMenu.php:211
+#: src/Admin/AdminMenu.php:235
+#: src/Admin/AdminMenu.php:264
+msgid "Yes, delete it!"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:194
+#: src/Admin/AdminMenu.php:212
+#: src/Admin/AdminMenu.php:236
+#: src/Admin/AdminMenu.php:265
+#: src/Admin/Views/materials-tab.php:41
+#: src/Admin/Views/regions-tab.php:41
+msgid "Cancel"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:210
+msgid "This material will be permanently deleted."
+msgstr ""
+
+#: src/Admin/AdminMenu.php:224
+#: src/Admin/AdminMenu.php:257
+#: src/Frontend/Shortcodes/MaterialsShortcode.php:62
+#: src/Frontend/Shortcodes/MaterialsShortcode.php:79
+msgid "Select a region"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:225
+#: src/Admin/AdminMenu.php:258
+#: src/Frontend/Shortcodes/LandShortcode.php:61
+#: src/Frontend/Shortcodes/MaterialsShortcode.php:59
+msgid "Loading..."
+msgstr ""
+
+#: src/Admin/AdminMenu.php:226
+msgid "No materials found for this region."
+msgstr ""
+
+#: src/Admin/AdminMenu.php:227
+msgid "Enter price"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:228
+msgid "Please enter at least one price."
+msgstr ""
+
+#: src/Admin/AdminMenu.php:229
+#: src/Admin/AdminMenu.php:268
 msgid "Warning"
 msgstr ""
 
-msgid "Yes, delete it!"
+#: src/Admin/AdminMenu.php:230
+#: src/Admin/AdminMenu.php:259
+msgid "Saved!"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:234
+#: src/Admin/AdminMenu.php:263
+msgid "This price entry will be permanently deleted."
+msgstr ""
+
+#: src/Admin/AdminMenu.php:237
+#: src/Admin/AdminMenu.php:266
+msgid "No price entries found."
+msgstr ""
+
+#: src/Admin/AdminMenu.php:238
+#: src/Admin/AdminMenu.php:267
+#: src/Admin/Views/materials-tab.php:74
+#: src/Admin/Views/regions-tab.php:74
+msgid "Delete"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:239
+#: src/Admin/AdminMenu.php:269
+#: src/Admin/Views/materials-tab.php:69
+#: src/Admin/Views/regions-tab.php:69
+msgid "Edit"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:240
+#: src/Admin/AdminMenu.php:270
+msgid "Save"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:241
+msgid "Delete all entries?"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:242
+msgid "All prices for this date will be permanently deleted."
+msgstr ""
+
+#: src/Admin/AdminMenu.php:243
+msgid "Deleting..."
+msgstr ""
+
+#: src/Admin/AdminMenu.php:244
+#: src/Admin/AdminMenu.php:271
+msgid "Saving..."
+msgstr ""
+
+#: src/Admin/AdminMenu.php:245
+#: src/Admin/Views/land-prices-tab.php:28
+#: src/Admin/Views/land-prices-tab.php:73
+#: src/Admin/Views/material-prices-tab.php:28
+msgid "Date"
+msgstr ""
+
+#: src/Admin/AdminMenu.php:246
+#: src/Admin/Views/land-prices-tab.php:74
+#: src/Admin/Views/materials-tab.php:55
+#: src/Admin/Views/regions-tab.php:55
+msgid "Actions"
+msgstr ""
+
+#: src/Admin/Ajax/LandPriceAdminAjax.php:30
+#: src/Admin/Ajax/LandPriceAdminAjax.php:52
+#: src/Admin/Ajax/LandPriceAdminAjax.php:71
+#: src/Admin/Ajax/LandPriceAdminAjax.php:90
+#: src/Admin/Ajax/MaterialAdminAjax.php:30
+#: src/Admin/Ajax/MaterialAdminAjax.php:59
+#: src/Admin/Ajax/MaterialAdminAjax.php:89
+#: src/Admin/Ajax/MaterialAdminAjax.php:108
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:30
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:60
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:79
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:98
+#: src/Admin/Ajax/RegionAdminAjax.php:30
+#: src/Admin/Ajax/RegionAdminAjax.php:59
+#: src/Admin/Ajax/RegionAdminAjax.php:89
+#: src/Admin/Ajax/RegionAdminAjax.php:108
+msgid "No permission."
+msgstr ""
+
+#: src/Admin/Ajax/LandPriceAdminAjax.php:39
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:38
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:106
+msgid "Region and date are required."
+msgstr ""
+
+#: src/Admin/Ajax/LandPriceAdminAjax.php:44
+msgid "Land prices saved."
+msgstr ""
+
+#: src/Admin/Ajax/LandPriceAdminAjax.php:58
+#: src/Admin/Ajax/LandPriceAdminAjax.php:98
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:66
+msgid "Invalid ID."
+msgstr ""
+
+#: src/Admin/Ajax/LandPriceAdminAjax.php:63
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:71
+msgid "Entry deleted."
+msgstr ""
+
+#: src/Admin/Ajax/LandPriceAdminAjax.php:77
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:85
+#: src/Frontend/Ajax/PublicTrackerAjax.php:125
+msgid "Invalid region."
+msgstr ""
+
+#: src/Admin/Ajax/LandPriceAdminAjax.php:103
+msgid "Land prices updated."
+msgstr ""
+
+#: src/Admin/Ajax/MaterialAdminAjax.php:37
+msgid "Material name is required."
+msgstr ""
+
+#: src/Admin/Ajax/MaterialAdminAjax.php:41
+#: src/Admin/Ajax/MaterialAdminAjax.php:71
+msgid "Material with this name already exists."
+msgstr ""
+
+#: src/Admin/Ajax/MaterialAdminAjax.php:47
+msgid "Material added."
+msgstr ""
+
+#: src/Admin/Ajax/MaterialAdminAjax.php:67
+#: src/Admin/Ajax/RegionAdminAjax.php:67
+msgid "Invalid data."
+msgstr ""
+
+#: src/Admin/Ajax/MaterialAdminAjax.php:77
+msgid "Material updated."
+msgstr ""
+
+#: src/Admin/Ajax/MaterialAdminAjax.php:95
+msgid "Invalid material ID."
+msgstr ""
+
+#: src/Admin/Ajax/MaterialAdminAjax.php:100
+msgid "Material deleted."
+msgstr ""
+
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:42
+msgid "No prices provided."
+msgstr ""
+
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:48
+msgid "No valid prices to save."
+msgstr ""
+
+#. translators: %d: number of prices saved
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:52
+#, php-format
+msgid "Saved %d price(s)."
+msgstr ""
+
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:113
+msgid "All entries for this date have been deleted."
+msgstr ""
+
+#. translators: 1: number updated, 2: number inserted, 3: number deleted
+#: src/Admin/Ajax/MaterialPriceAdminAjax.php:121
+#, php-format
+msgid "Updated: %1$d, Inserted: %2$d, Deleted: %3$d"
+msgstr ""
+
+#: src/Admin/Ajax/RegionAdminAjax.php:37
+msgid "Region name is required."
+msgstr ""
+
+#: src/Admin/Ajax/RegionAdminAjax.php:41
+#: src/Admin/Ajax/RegionAdminAjax.php:71
+msgid "Region with this name already exists."
+msgstr ""
+
+#: src/Admin/Ajax/RegionAdminAjax.php:47
+msgid "Region added."
+msgstr ""
+
+#: src/Admin/Ajax/RegionAdminAjax.php:77
+msgid "Region updated."
+msgstr ""
+
+#: src/Admin/Ajax/RegionAdminAjax.php:95
+msgid "Invalid region ID."
+msgstr ""
+
+#: src/Admin/Ajax/RegionAdminAjax.php:100
+msgid "Region deleted."
+msgstr ""
+
+#: src/Admin/Views/land-prices-tab.php:7
+msgid "Manage Land Prices"
+msgstr ""
+
+#: src/Admin/Views/land-prices-tab.php:13
+#: src/Admin/Views/material-prices-tab.php:13
+msgid "Region"
+msgstr ""
+
+#: src/Admin/Views/land-prices-tab.php:17
+#: src/Admin/Views/material-prices-tab.php:17
+msgid "-- Select Region --"
+msgstr ""
+
+#: src/Admin/Views/land-prices-tab.php:40
+#: src/Admin/Views/land-prices-tab.php:71
+#: src/Frontend/Shortcodes/LandShortcode.php:64
+msgid "Shell & Core"
+msgstr ""
+
+#: src/Admin/Views/land-prices-tab.php:48
+#: src/Admin/Views/land-prices-tab.php:72
+#: src/Frontend/Shortcodes/LandShortcode.php:65
+msgid "Fully Finished"
+msgstr ""
+
+#: src/Admin/Views/land-prices-tab.php:59
+#: src/Admin/Views/material-prices-tab.php:42
+msgid "Save Prices"
+msgstr ""
+
+#: src/Admin/Views/land-prices-tab.php:66
+#: src/Admin/Views/material-prices-tab.php:49
+msgid "Recent Entries"
+msgstr ""
+
+#: src/Admin/Views/land-prices-tab.php:70
+#: src/Admin/Views/materials-tab.php:52
+#: src/Admin/Views/regions-tab.php:52
+msgid "ID"
+msgstr ""
+
+#: src/Admin/Views/land-prices-tab.php:79
+#: src/Admin/Views/material-prices-tab.php:52
+msgid "Select a region to view entries."
+msgstr ""
+
+#: src/Admin/Views/material-prices-tab.php:7
+msgid "Manage Material Prices"
+msgstr ""
+
+#: src/Admin/Views/material-prices-tab.php:37
+msgid "Select a region to load materials."
+msgstr ""
+
+#: src/Admin/Views/materials-tab.php:7
+msgid "Manage Materials"
+msgstr ""
+
+#: src/Admin/Views/materials-tab.php:13
+#: src/Admin/Views/materials-tab.php:32
+msgid "Material Name"
+msgstr ""
+
+#: src/Admin/Views/materials-tab.php:20
+msgid "Add Material"
+msgstr ""
+
+#: src/Admin/Views/materials-tab.php:26
+msgid "Edit Material"
+msgstr ""
+
+#: src/Admin/Views/materials-tab.php:39
+msgid "Update Material"
+msgstr ""
+
+#: src/Admin/Views/materials-tab.php:48
+msgid "Existing Materials"
+msgstr ""
+
+#: src/Admin/Views/materials-tab.php:53
+#: src/Admin/Views/regions-tab.php:53
+msgid "Name"
+msgstr ""
+
+#: src/Admin/Views/materials-tab.php:54
+#: src/Admin/Views/regions-tab.php:54
+msgid "Slug"
+msgstr ""
+
+#: src/Admin/Views/materials-tab.php:81
+msgid "No materials found."
+msgstr ""
+
+#: src/Admin/Views/regions-tab.php:7
+msgid "Manage Regions"
+msgstr ""
+
+#: src/Admin/Views/regions-tab.php:13
+#: src/Admin/Views/regions-tab.php:32
+msgid "Region Name"
+msgstr ""
+
+#: src/Admin/Views/regions-tab.php:20
+msgid "Add Region"
+msgstr ""
+
+#: src/Admin/Views/regions-tab.php:26
+msgid "Edit Region"
+msgstr ""
+
+#: src/Admin/Views/regions-tab.php:39
+msgid "Update Region"
+msgstr ""
+
+#: src/Admin/Views/regions-tab.php:48
+msgid "Existing Regions"
+msgstr ""
+
+#: src/Admin/Views/regions-tab.php:81
+msgid "No regions found."
+msgstr ""
+
+#: src/Admin/Views/shortcode-gen-tab.php:7
+msgid "Shortcodes"
+msgstr ""
+
+#: src/Admin/Views/shortcode-gen-tab.php:8
+msgid "Copy and paste these shortcodes into any post or page."
+msgstr ""
+
+#: src/Admin/Views/shortcode-gen-tab.php:11
+msgid "Material Prices Table"
+msgstr ""
+
+#: src/Admin/Views/shortcode-gen-tab.php:16
+msgid "Land Prices Table"
+msgstr ""
+
+#: src/Frontend/Shortcodes/LandShortcode.php:62
+msgid "Error loading data."
+msgstr ""
+
+#: src/Frontend/Shortcodes/LandShortcode.php:63
+msgid "No data available for this region."
+msgstr ""
+
+#: src/Frontend/Shortcodes/LandShortcode.php:66
+#: src/Frontend/Shortcodes/MaterialsShortcode.php:64
+msgid "Latest Price"
+msgstr ""
+
+#: src/Frontend/Shortcodes/LandShortcode.php:67
+msgid "Trend"
+msgstr ""
+
+#: src/Frontend/Shortcodes/LandShortcode.php:68
+#: src/Frontend/Shortcodes/LandShortcode.php:82
+msgid "Select a region..."
+msgstr ""
+
+#: src/Frontend/Shortcodes/LandShortcode.php:69
+msgid "Type"
+msgstr ""
+
+#: src/Frontend/Shortcodes/LandShortcode.php:70
+msgid "Historical Trend"
+msgstr ""
+
+#: src/Frontend/Shortcodes/MaterialsShortcode.php:60
+msgid "An error occurred."
+msgstr ""
+
+#: src/Frontend/Shortcodes/MaterialsShortcode.php:61
+msgid "No data available."
+msgstr ""
+
+#: src/Frontend/Shortcodes/MaterialsShortcode.php:63
+msgid "Material"
+msgstr ""
+
+#: src/Frontend/Shortcodes/MaterialsShortcode.php:65
+msgid "Indicator"
+msgstr ""
+
+#: src/Frontend/Shortcodes/MaterialsShortcode.php:66
+msgid "Price Chart"
 msgstr ""
