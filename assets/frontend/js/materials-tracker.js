@@ -74,10 +74,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function renderTable(rows) {
             const thead = '<thead><tr>' +
-                '<th>' + i18n.material + '</th>' +
-                '<th>' + i18n.latest_price + '</th>' +
-                '<th>' + i18n.price_chart + '</th>' +
                 '<th>' + i18n.indicator + '</th>' +
+                '<th>' + i18n.price_chart + '</th>' +
+                '<th>' + i18n.latest_price + '</th>' +
+                '<th>' + i18n.material + '</th>' +
                 '</tr></thead>';
 
             const tbody = '<tbody>' + rows.map(function (row, index) {
@@ -85,51 +85,52 @@ document.addEventListener('DOMContentLoaded', function () {
                     ? parseFloat(row.latest_price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
                     : '\u2014';
                 return '<tr>' +
-                    '<td>' + row.material_name + '</td>' +
-                    '<td class="sanad-price-cell">' + price + '</td>' +
-                    '<td class="sanad-chart-cell"><canvas class="sanad-mini-chart" id="sanad-chart-' + instanceId + '-' + index + '" width="150" height="40"></canvas></td>' +
                     '<td>' + formatIndicator(row.indicator_dir, row.indicator_pct) + '</td>' +
+                    '<td class="sanad-chart-cell">' +
+                    '<div class="sanad-sparkline-wrapper">' +
+                    '<canvas class="sanad-mini-chart" id="spark-' + instanceId + '-' + index + '"></canvas>' +
+                    '</div>' +
+                    '</td>' +
+                    '<td class="sanad-price-cell">' + price + '</td>' +
+                    '<td>' + row.material_name + '</td>' +
                     '</tr>';
             }).join('') + '</tbody>';
 
-            container.innerHTML = '<table>' + thead + tbody + '</table>';
+            container.innerHTML = '<table class="sanad-materials-table">' + thead + tbody + '</table>';
 
             rows.forEach(function (row, index) {
-                const canvas = document.getElementById('sanad-chart-' + instanceId + '-' + index);
+                const canvas = document.getElementById('spark-' + instanceId + '-' + index);
                 if (!canvas || !row.chart_data || row.chart_data.length === 0) return;
 
-                const ctx = canvas.getContext('2d');
-                const labels = row.chart_data.map(function (d) {
-                    const parts = d.month.split('-');
-                    const date = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, 1);
-                    return date.toLocaleDateString('en', { month: 'short', year: '2-digit' });
-                });
                 const prices = row.chart_data.map(function (d) { return parseFloat(d.avg); });
 
-                new Chart(ctx, {
+                new Chart(canvas.getContext('2d'), {
                     type: 'line',
                     data: {
-                        labels: labels,
+                        labels: prices.map(function (_, idx) { return idx; }),
                         datasets: [{
                             data: prices,
-                            borderColor: '#2563eb',
+                            borderColor: '#425C61',
                             backgroundColor: 'transparent',
-                            borderWidth: 2,
-                            tension: 0.4,
+                            borderWidth: 1.75,
+                            borderJoinStyle: 'miter',
+                            tension: 0,
                             pointRadius: 0,
-                            pointHitRadius: 20,
+                            pointHitRadius: 0,
+                            fill: false,
                         }]
                     },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
+                        events: [],
                         plugins: {
                             legend: { display: false },
                             tooltip: { enabled: false }
                         },
                         scales: {
                             x: { display: false },
-                            y: { display: false }
+                            y: { display: false, grace: '10%' }
                         }
                     }
                 });

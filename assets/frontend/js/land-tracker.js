@@ -1,9 +1,9 @@
 (function () {
-  const AXIS = "#243c69";
-  const GRID = "#e5e7eb";
+  const AXIS = "#64748b";
+  const GRID = "#e2e8f0";
   const COLORS = {
-    shell_core: "#3b82f6",
-    fully_finished: "#10b981",
+    shell_core: "#C49B3A",
+    fully_finished: "#00332e",
   };
 
   function formatMonth(ym) {
@@ -44,6 +44,7 @@
         : "\u2014";
 
     return (
+      '<div class="sanad-table-responsive">' +
       '<table class="sanad-land-table">' +
       "<thead>" +
       "<tr>" +
@@ -83,7 +84,15 @@
       "</tr>" +
       "</tbody>" +
       "</table>" +
-      '<canvas class="sanad-land-chart" width="400" height="200"></canvas>'
+      "</div>" +
+      '<div class="sanad-chart-panel">' +
+      '<div class="sanad-chart-header">' +
+      SanadTrackerLand.i18n.historical_trend +
+      "</div>" +
+      '<div class="sanad-chart-wrapper">' +
+      '<canvas class="sanad-land-chart"></canvas>' +
+      "</div>" +
+      "</div>"
     );
   }
 
@@ -131,10 +140,11 @@
             data: scData,
             borderColor: COLORS.shell_core,
             backgroundColor: COLORS.shell_core,
-            tension: 0.4,
-            pointRadius: 0,
-            pointHoverRadius: 4,
+            tension: 0,
+            pointRadius: 2,
+            pointHoverRadius: 5,
             borderWidth: 2,
+            borderJoinStyle: 'miter',
             fill: false,
           },
           {
@@ -142,30 +152,35 @@
             data: ffData,
             borderColor: COLORS.fully_finished,
             backgroundColor: COLORS.fully_finished,
-            tension: 0.4,
-            pointRadius: 0,
-            pointHoverRadius: 4,
+            tension: 0,
+            pointRadius: 2,
+            pointHoverRadius: 5,
             borderWidth: 2,
+            borderJoinStyle: 'miter',
             fill: false,
           },
         ],
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         interaction: { mode: "index", intersect: false },
         plugins: {
           legend: {
             position: "top",
+            align: "end",
             labels: {
-              pointStyle: "rect",
+              pointStyle: "circle",
               usePointStyle: true,
-              boxWidth: 10,
-              boxHeight: 10,
-              color: AXIS,
+              boxWidth: 8,
+              boxHeight: 8,
+              color: "#475569",
+              font: { size: 12, weight: 500 },
             },
           },
           tooltip: {
+            padding: 10,
+            borderRadius: 6,
             displayColors: true,
             callbacks: {
               label: function (context) {
@@ -185,11 +200,11 @@
         scales: {
           x: {
             grid: { display: false },
-            ticks: { color: AXIS, maxRotation: 0 },
+            ticks: { color: AXIS, font: { size: 11 } },
           },
           y: {
             grid: { color: GRID, drawBorder: false },
-            ticks: { color: AXIS, maxTicksLimit: 6 },
+            ticks: { color: AXIS, maxTicksLimit: 5, font: { size: 11 } },
           },
         },
       },
@@ -204,7 +219,7 @@
   async function fetchRegion(regionId, wrapper) {
     const container = wrapper.querySelector(".sanad-land-table-container");
     const loader = wrapper.querySelector(".sanad-loader");
-    if (loader) loader.style.display = "block";
+    if (loader) loader.style.display = "flex";
     container.innerHTML = "";
 
     const formData = new FormData();
@@ -222,6 +237,7 @@
       if (loader) loader.style.display = "none";
 
       if (json.success) {
+        container.classList.add("sanad-land-card");
         container.innerHTML = buildTable(json.data);
         const canvas = container.querySelector(".sanad-land-chart");
         if (canvas) {
