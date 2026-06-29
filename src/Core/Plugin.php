@@ -24,6 +24,8 @@ class Plugin
 
     public function init(): void
     {
+        load_plugin_textdomain('sanad-tracker', false, SANAD_TRACKER_DIR . '/languages');
+
         new AdminMenu();
         new RegionAdminAjax();
         new MaterialAdminAjax();
