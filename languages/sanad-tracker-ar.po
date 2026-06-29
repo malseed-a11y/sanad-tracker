@@ -1,0 +1,332 @@
+# Translation of Sanad Tracker in Arabic
+# Copyright (C) 2025 2P
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sanad Tracker 1.0.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: 2P <info@2p.com.tr>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: \n"
+
+msgid "-- Select Region --"
+msgstr "-- اختر المنطقة --"
+
+msgid "Actions"
+msgstr "الإجراءات"
+
+msgid "Add Material"
+msgstr "إضافة مادة"
+
+msgid "Add Region"
+msgstr "إضافة منطقة"
+
+msgid "Added!"
+msgstr "تمت الإضافة!"
+
+msgid "All entries for this date have been deleted."
+msgstr "تم حذف جميع الإدخالات لهذا التاريخ."
+
+msgid "All prices for this date will be permanently deleted."
+msgstr "سيتم حذف جميع الأسعار لهذا التاريخ بشكل نهائي."
+
+msgid "An error occurred."
+msgstr "حدث خطأ."
+
+msgid "Are you sure?"
+msgstr "هل أنت متأكد؟"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Copy and paste these shortcodes into any post or page."
+msgstr "انسخ والصق هذه الرموز القصيرة في أي منشور أو صفحة."
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Delete all data on uninstall"
+msgstr "حذف جميع البيانات عند إلغاء التثبيت"
+
+msgid "Delete all entries?"
+msgstr "حذف جميع الإدخالات؟"
+
+msgid "Deleted!"
+msgstr "تم الحذف!"
+
+msgid "Deleting..."
+msgstr "جاري الحذف..."
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Edit Material"
+msgstr "تعديل المادة"
+
+msgid "Edit Region"
+msgstr "تعديل المنطقة"
+
+msgid "Enter price"
+msgstr "أدخل السعر"
+
+msgid "Entry deleted."
+msgstr "تم حذف الإدخال."
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "Error loading data."
+msgstr "خطأ في تحميل البيانات."
+
+msgid "Existing Materials"
+msgstr "المواد الموجودة"
+
+msgid "Existing Regions"
+msgstr "المناطق الموجودة"
+
+msgid "Fully Finished"
+msgstr "تشطيب كامل"
+
+msgid "Historical Trend"
+msgstr "الاتجاه التاريخي"
+
+msgid "ID"
+msgstr "المعرّف"
+
+msgid "Indicator"
+msgstr "المؤشر"
+
+msgid "Invalid data."
+msgstr "بيانات غير صالحة."
+
+msgid "Invalid ID."
+msgstr "معرّف غير صالح."
+
+msgid "Invalid material ID."
+msgstr "معرّف المادة غير صالح."
+
+msgid "Invalid region ID."
+msgstr "معرّف المنطقة غير صالح."
+
+msgid "Invalid region."
+msgstr "منطقة غير صالحة."
+
+msgid "Land Prices"
+msgstr "أسعار الأراضي"
+
+msgid "Land prices saved."
+msgstr "تم حفظ أسعار الأراضي."
+
+msgid "Land Prices Table"
+msgstr "جدول أسعار الأراضي"
+
+msgid "Land prices updated."
+msgstr "تم تحديث أسعار الأراضي."
+
+msgid "Latest Price"
+msgstr "آخر سعر"
+
+msgid "Loading..."
+msgstr "جار التحميل..."
+
+msgid "Manage Land Prices"
+msgstr "إدارة أسعار الأراضي"
+
+msgid "Manage Material Prices"
+msgstr "إدارة أسعار المواد"
+
+msgid "Manage Materials"
+msgstr "إدارة المواد"
+
+msgid "Manage Regions"
+msgstr "إدارة المناطق"
+
+msgid "Material"
+msgstr "المادة"
+
+msgid "Material added."
+msgstr "تمت إضافة المادة."
+
+msgid "Material deleted."
+msgstr "تم حذف المادة."
+
+msgid "Material Name"
+msgstr "اسم المادة"
+
+msgid "Material name is required."
+msgstr "اسم المادة مطلوب."
+
+msgid "Material Prices"
+msgstr "أسعار المواد"
+
+msgid "Material Prices Table"
+msgstr "جدول أسعار المواد"
+
+msgid "Material updated."
+msgstr "تم تحديث المادة."
+
+msgid "Material with this name already exists."
+msgstr "توجد مادة بهذا الاسم بالفعل."
+
+msgid "Materials"
+msgstr "المواد"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "No data available for this region."
+msgstr "لا توجد بيانات متاحة لهذه المنطقة."
+
+msgid "No data available."
+msgstr "لا توجد بيانات متاحة."
+
+msgid "No materials found for this region."
+msgstr "لم يتم العثور على مواد لهذه المنطقة."
+
+msgid "No materials found."
+msgstr "لم يتم العثور على مواد."
+
+msgid "No permission."
+msgstr "لا توجد صلاحية."
+
+msgid "No price entries found."
+msgstr "لم يتم العثور على إدخالات أسعار."
+
+msgid "No prices provided."
+msgstr "لم يتم تقديم أسعار."
+
+msgid "No regions found."
+msgstr "لم يتم العثور على مناطق."
+
+msgid "No valid prices to save."
+msgstr "لا توجد أسعار صالحة للحفظ."
+
+msgid "Please enter at least one price."
+msgstr "يرجى إدخال سعر واحد على الأقل."
+
+msgid "Price Chart"
+msgstr "الرسم البياني للسعر"
+
+msgid "Recent Entries"
+msgstr "الإدخالات الأخيرة"
+
+msgid "Region"
+msgstr "المنطقة"
+
+msgid "Region & Land Price Tracker"
+msgstr "متتبع أسعار المناطق والأراضي"
+
+msgid "Region added."
+msgstr "تمت إضافة المنطقة."
+
+msgid "Region and date are required."
+msgstr "المنطقة والتاريخ مطلوبان."
+
+msgid "Region deleted."
+msgstr "تم حذف المنطقة."
+
+msgid "Region Name"
+msgstr "اسم المنطقة"
+
+msgid "Region name is required."
+msgstr "اسم المنطقة مطلوب."
+
+msgid "Region updated."
+msgstr "تم تحديث المنطقة."
+
+msgid "Region with this name already exists."
+msgstr "توجد منطقة بهذا الاسم بالفعل."
+
+msgid "Regions"
+msgstr "المناطق"
+
+msgid "Sanad Tracker"
+msgstr "متتبع سند"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Save Prices"
+msgstr "حفظ الأسعار"
+
+msgid "Saved %d price(s)."
+msgstr "تم حفظ %d سعر(أسعار)."
+
+msgid "Saved!"
+msgstr "تم الحفظ!"
+
+msgid "Saving..."
+msgstr "جاري الحفظ..."
+
+msgid "Select a region"
+msgstr "اختر منطقة"
+
+msgid "Select a region to load materials."
+msgstr "اختر منطقة لتحميل المواد."
+
+msgid "Select a region to view entries."
+msgstr "اختر منطقة لعرض الإدخالات."
+
+msgid "Select a region..."
+msgstr "اختر منطقة..."
+
+msgid "Shell & Core"
+msgstr "الهيكل الأساسي"
+
+msgid "Shortcode Generator"
+msgstr "مولّد الرموز القصيرة"
+
+msgid "Shortcodes"
+msgstr "الرموز القصيرة"
+
+msgid "Slug"
+msgstr "الرابط"
+
+msgid "This material will be permanently deleted."
+msgstr "سيتم حذف هذه المادة بشكل نهائي."
+
+msgid "This price entry will be permanently deleted."
+msgstr "سيتم حذف إدخال السعر هذا بشكل نهائي."
+
+msgid "This region will be permanently deleted along with all its prices."
+msgstr "سيتم حذف هذه المنطقة بشكل نهائي مع جميع أسعارها."
+
+msgid "Trend"
+msgstr "الاتجاه"
+
+msgid "Type"
+msgstr "النوع"
+
+msgid "Unauthorized."
+msgstr "غير مصرح."
+
+msgid "Uninstall Settings"
+msgstr "إعدادات إلغاء التثبيت"
+
+msgid "Update Material"
+msgstr "تحديث المادة"
+
+msgid "Update Region"
+msgstr "تحديث المنطقة"
+
+msgid "Updated!"
+msgstr "تم التحديث!"
+
+msgid "Updated: %1$d, Inserted: %2$d, Deleted: %3$d"
+msgstr "تم التحديث: %1$d، والإدراج: %2$d، والحذف: %3$d"
+
+msgid "Warning"
+msgstr "تحذير"
+
+msgid "Yes, delete it!"
+msgstr "نعم، احذفه!"

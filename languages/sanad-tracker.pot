@@ -1,0 +1,328 @@
+# Copyright (C) 2025 2P
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sanad Tracker 1.0.3\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: 2P <info@2p.com.tr>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "-- Select Region --"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "Add Material"
+msgstr ""
+
+msgid "Add Region"
+msgstr ""
+
+msgid "Added!"
+msgstr ""
+
+msgid "All entries for this date have been deleted."
+msgstr ""
+
+msgid "All prices for this date will be permanently deleted."
+msgstr ""
+
+msgid "An error occurred."
+msgstr ""
+
+msgid "Are you sure?"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Copy and paste these shortcodes into any post or page."
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete all data on uninstall"
+msgstr ""
+
+msgid "Delete all entries?"
+msgstr ""
+
+msgid "Deleted!"
+msgstr ""
+
+msgid "Deleting..."
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit Material"
+msgstr ""
+
+msgid "Edit Region"
+msgstr ""
+
+msgid "Enter price"
+msgstr ""
+
+msgid "Entry deleted."
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Error loading data."
+msgstr ""
+
+msgid "Existing Materials"
+msgstr ""
+
+msgid "Existing Regions"
+msgstr ""
+
+msgid "Fully Finished"
+msgstr ""
+
+msgid "Historical Trend"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Indicator"
+msgstr ""
+
+msgid "Invalid data."
+msgstr ""
+
+msgid "Invalid ID."
+msgstr ""
+
+msgid "Invalid material ID."
+msgstr ""
+
+msgid "Invalid region ID."
+msgstr ""
+
+msgid "Invalid region."
+msgstr ""
+
+msgid "Land Prices"
+msgstr ""
+
+msgid "Land prices saved."
+msgstr ""
+
+msgid "Land Prices Table"
+msgstr ""
+
+msgid "Land prices updated."
+msgstr ""
+
+msgid "Latest Price"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Manage Land Prices"
+msgstr ""
+
+msgid "Manage Material Prices"
+msgstr ""
+
+msgid "Manage Materials"
+msgstr ""
+
+msgid "Manage Regions"
+msgstr ""
+
+msgid "Material"
+msgstr ""
+
+msgid "Material added."
+msgstr ""
+
+msgid "Material deleted."
+msgstr ""
+
+msgid "Material Name"
+msgstr ""
+
+msgid "Material name is required."
+msgstr ""
+
+msgid "Material Prices"
+msgstr ""
+
+msgid "Material Prices Table"
+msgstr ""
+
+msgid "Material updated."
+msgstr ""
+
+msgid "Material with this name already exists."
+msgstr ""
+
+msgid "Materials"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "No data available for this region."
+msgstr ""
+
+msgid "No data available."
+msgstr ""
+
+msgid "No materials found for this region."
+msgstr ""
+
+msgid "No materials found."
+msgstr ""
+
+msgid "No permission."
+msgstr ""
+
+msgid "No price entries found."
+msgstr ""
+
+msgid "No prices provided."
+msgstr ""
+
+msgid "No regions found."
+msgstr ""
+
+msgid "No valid prices to save."
+msgstr ""
+
+msgid "Please enter at least one price."
+msgstr ""
+
+msgid "Price Chart"
+msgstr ""
+
+msgid "Recent Entries"
+msgstr ""
+
+msgid "Region"
+msgstr ""
+
+msgid "Region & Land Price Tracker"
+msgstr ""
+
+msgid "Region added."
+msgstr ""
+
+msgid "Region and date are required."
+msgstr ""
+
+msgid "Region deleted."
+msgstr ""
+
+msgid "Region Name"
+msgstr ""
+
+msgid "Region name is required."
+msgstr ""
+
+msgid "Region updated."
+msgstr ""
+
+msgid "Region with this name already exists."
+msgstr ""
+
+msgid "Regions"
+msgstr ""
+
+msgid "Sanad Tracker"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Save Prices"
+msgstr ""
+
+msgid "Saved %d price(s)."
+msgstr ""
+
+msgid "Saved!"
+msgstr ""
+
+msgid "Saving..."
+msgstr ""
+
+msgid "Select a region"
+msgstr ""
+
+msgid "Select a region to load materials."
+msgstr ""
+
+msgid "Select a region to view entries."
+msgstr ""
+
+msgid "Select a region..."
+msgstr ""
+
+msgid "Shell & Core"
+msgstr ""
+
+msgid "Shortcode Generator"
+msgstr ""
+
+msgid "Shortcodes"
+msgstr ""
+
+msgid "Slug"
+msgstr ""
+
+msgid "This material will be permanently deleted."
+msgstr ""
+
+msgid "This price entry will be permanently deleted."
+msgstr ""
+
+msgid "This region will be permanently deleted along with all its prices."
+msgstr ""
+
+msgid "Trend"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Unauthorized."
+msgstr ""
+
+msgid "Uninstall Settings"
+msgstr ""
+
+msgid "Update Material"
+msgstr ""
+
+msgid "Update Region"
+msgstr ""
+
+msgid "Updated!"
+msgstr ""
+
+msgid "Updated: %1$d, Inserted: %2$d, Deleted: %3$d"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "Yes, delete it!"
+msgstr ""
